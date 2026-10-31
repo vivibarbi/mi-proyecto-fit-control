@@ -80,7 +80,80 @@
 
     </section>
 
-    <!-- sección de Fórmulas y metodología con HTML y CSS -->
+
+    <section id="resultados" class="dashboard hidden">
+
+        <div class="card">
+            <h3>Metabolismo basal</h3>
+            <p id="tmb">0</p>
+            <small>kcal/día</small>
+        </div>
+
+        <div class="card">
+            <h3>Gasto energético diario</h3>
+            <p id="tdee">0</p>
+            <small>kcal/día</small>
+        </div>
+
+        <div class="card">
+            <h3>Calorías objetivo</h3>
+            <p id="calorias">0</p>
+            <small>kcal/día</small>
+        </div>
+
+        <div class="card">
+            <h3>Índice de masa corporal</h3>
+            <p id="imc">0</p>
+            <small>IMC</small>
+        </div>
+
+    </section>
+
+    <section id="macros" class="panel hidden">
+
+        <h2>Mis macronutrientes diarios</h2>
+
+        <div class="macro-grid">
+
+            <div class="macro proteina">
+                <h3>Proteínas</h3>
+                <p id="proteinas">0 g</p>
+            </div>
+
+            <div class="macro carbo">
+                <h3>Carbohidratos</h3>
+                <p id="carbohidratos">0 g</p>
+            </div>
+
+            <div class="macro grasa">
+                <h3>Grasas</h3>
+                <p id="grasas">0 g</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="panel">
+
+        <h2>Control de peso</h2>
+
+        <form id="pesoForm">
+
+            <label>Registrar peso (kg)</label>
+
+            <input type="number" id="nuevoPeso"
+                   step="0.1" min="1" required>
+
+            <button type="submit">Guardar peso</button>
+
+        </form>
+
+        <canvas id="graficoPeso"></canvas>
+
+    </section>
+
+ <!-- sección de Fórmulas y metodología con HTML y CSS -->
      
 <section class="formulas" id="formulas">
     <div class="formulas-container">
@@ -294,78 +367,6 @@
     </div>
 </section>
 
-
-    <section id="resultados" class="dashboard hidden">
-
-        <div class="card">
-            <h3>Metabolismo basal</h3>
-            <p id="tmb">0</p>
-            <small>kcal/día</small>
-        </div>
-
-        <div class="card">
-            <h3>Gasto energético diario</h3>
-            <p id="tdee">0</p>
-            <small>kcal/día</small>
-        </div>
-
-        <div class="card">
-            <h3>Calorías objetivo</h3>
-            <p id="calorias">0</p>
-            <small>kcal/día</small>
-        </div>
-
-        <div class="card">
-            <h3>Índice de masa corporal</h3>
-            <p id="imc">0</p>
-            <small>IMC</small>
-        </div>
-
-    </section>
-
-    <section id="macros" class="panel hidden">
-
-        <h2>Mis macronutrientes diarios</h2>
-
-        <div class="macro-grid">
-
-            <div class="macro proteina">
-                <h3>Proteínas</h3>
-                <p id="proteinas">0 g</p>
-            </div>
-
-            <div class="macro carbo">
-                <h3>Carbohidratos</h3>
-                <p id="carbohidratos">0 g</p>
-            </div>
-
-            <div class="macro grasa">
-                <h3>Grasas</h3>
-                <p id="grasas">0 g</p>
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="panel">
-
-        <h2>Control de peso</h2>
-
-        <form id="pesoForm">
-
-            <label>Registrar peso (kg)</label>
-
-            <input type="number" id="nuevoPeso"
-                   step="0.1" min="1" required>
-
-            <button type="submit">Guardar peso</button>
-
-        </form>
-
-        <canvas id="graficoPeso"></canvas>
-
-    </section>
 
 </div>
 
