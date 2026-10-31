@@ -1,0 +1,224 @@
+
+/* SECCION FORMULAS */
+
+.formulas {
+    width: 100%;
+    padding: 70px 20px;
+    background: #0b1220;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.formulas-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.formulas-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.formulas-tag {
+    color: #38d996;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.formulas-header h2 {
+    font-size: 36px;
+    margin: 15px 0;
+    color: #ffffff;
+}
+
+.formulas-header p {
+    color: #a6b1c2;
+    line-height: 1.7;
+}
+
+.formula-card {
+    display: flex;
+    gap: 25px;
+    padding: 28px;
+    margin-bottom: 20px;
+    background: #151f30;
+    border: 1px solid #26364a;
+    border-radius: 16px;
+    transition: 0.3s ease;
+}
+
+.formula-card:hover {
+    transform: translateY(-4px);
+    border-color: #38d996;
+}
+
+.formula-number {
+    color: #38d996;
+    font-size: 25px;
+    font-weight: bold;
+    min-width: 40px;
+}
+
+.formula-content {
+    flex: 1;
+}
+
+.formula-content h3 {
+    font-size: 21px;
+    margin: 0 0 12px;
+    color: #ffffff;
+}
+
+.formula-content p {
+    color: #b5c0d0;
+    line-height: 1.7;
+}
+
+.formula-box {
+    background: #0b1524;
+    border-left: 4px solid #38d996;
+    padding: 18px;
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.formula-box strong {
+    color: #38d996;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.formula-box p {
+    color: #ffffff;
+    font-weight: 600;
+    margin: 8px 0 15px;
+}
+
+.formula-box small {
+    color: #91a0b5;
+}
+
+.formula-source {
+    color: #38d996;
+    font-size: 13px;
+}
+
+.activity-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.activity-list span {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: #202d40;
+    border-radius: 8px;
+    color: #cbd5e1;
+}
+
+.activity-list b {
+    color: #38d996;
+}
+
+.goal-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.goal-list div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: #202d40;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.goal-list span {
+    color: #cbd5e1;
+}
+
+.goal-list strong {
+    color: #38d996;
+}
+
+.references {
+    margin-top: 45px;
+    padding: 28px;
+    background: #151f30;
+    border-radius: 16px;
+    border: 1px solid #26364a;
+}
+
+.references h3 {
+    color: #38d996;
+    margin-top: 0;
+}
+
+.references ul {
+    padding-left: 20px;
+}
+
+.references li {
+    color: #b5c0d0;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.references a {
+    color: #38d996;
+    text-decoration: none;
+}
+
+.references a:hover {
+    text-decoration: underline;
+}
+
+.formulas-footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #718096;
+    font-size: 12px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+
+    .formulas {
+        padding: 45px 15px;
+    }
+
+    .formulas-header h2 {
+        font-size: 28px;
+    }
+
+    .formula-card {
+        padding: 20px 15px;
+        gap: 12px;
+    }
+
+    .formula-number {
+        font-size: 19px;
+        min-width: 30px;
+    }
+
+    .formula-content h3 {
+        font-size: 18px;
+    }
+
+    .activity-list {
+        grid-template-columns: 1fr;
+    }
+
+    .goal-list div {
+        flex-wrap: wrap;
+    }
+}

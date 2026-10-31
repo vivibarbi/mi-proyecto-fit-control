@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FitControl - Panel Fitness</title>
     <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -78,6 +79,221 @@
         </form>
 
     </section>
+
+    <!-- sección de Fórmulas y metodología con HTML y CSS -->
+     
+<section class="formulas" id="formulas">
+    <div class="formulas-container">
+
+        <div class="formulas-header">
+            <span class="formulas-tag">FITCONTROL · METODOLOGÍA</span>
+            <h2>Fórmulas utilizadas</h2>
+            <p>
+                Conoce cómo calculamos tus necesidades energéticas,
+                calorías y distribución de macronutrientes.
+            </p>
+        </div>
+
+        <!-- TMB -->
+        <article class="formula-card">
+            <div class="formula-number">01</div>
+            <div class="formula-content">
+                <h3>Tasa Metabólica Basal (TMB)</h3>
+                <p>
+                    Calcula la energía que tu organismo necesita
+                    en reposo para mantener sus funciones vitales.
+                </p>
+
+                <div class="formula-box">
+                    <strong>Hombres</strong>
+                    <p>TMB = (10 × peso) + (6.25 × altura) - (5 × edad) + 5</p>
+                    <strong>Mujeres</strong>
+                    <p>TMB = (10 × peso) + (6.25 × altura) - (5 × edad) - 161</p>
+                </div>
+
+                <span class="formula-source">
+                    Fuente: Mifflin-St Jeor (1990).
+                </span>
+            </div>
+        </article>
+
+        <!-- TDEE -->
+        <article class="formula-card">
+            <div class="formula-number">02</div>
+            <div class="formula-content">
+                <h3>Gasto Energético Diario (TDEE)</h3>
+                <p>
+                    Estima las calorías que gastas diariamente
+                    según tu actividad física.
+                </p>
+
+                <div class="formula-box">
+                    <p>TDEE = TMB × Factor de actividad</p>
+                </div>
+
+                <div class="activity-list">
+                    <span>Sedentario <b>1.20</b></span>
+                    <span>Ligero <b>1.375</b></span>
+                    <span>Moderado <b>1.55</b></span>
+                    <span>Alto <b>1.725</b></span>
+                    <span>Muy alto <b>1.90</b></span>
+                </div>
+            </div>
+        </article>
+
+        <!-- CALORIAS -->
+        <article class="formula-card">
+            <div class="formula-number">03</div>
+            <div class="formula-content">
+                <h3>Calorías según tu objetivo</h3>
+                <p>
+                    Ajustamos el gasto energético según
+                    el objetivo seleccionado.
+                </p>
+
+                <div class="goal-list">
+                    <div>
+                        <span>Perder peso</span>
+                        <strong>TDEE × 0.85</strong>
+                    </div>
+                    <div>
+                        <span>Mantener peso</span>
+                        <strong>TDEE × 1.00</strong>
+                    </div>
+                    <div>
+                        <span>Ganar peso</span>
+                        <strong>TDEE × 1.10</strong>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- PROTEINAS -->
+        <article class="formula-card">
+            <div class="formula-number">04</div>
+            <div class="formula-content">
+                <h3>Proteínas</h3>
+                <p>
+                    Estimamos la cantidad diaria de proteínas
+                    según el peso corporal.
+                </p>
+
+                <div class="formula-box">
+                    <p>Proteínas = Peso × 1.8 g</p>
+                    <small>4 kcal por cada gramo de proteína.</small>
+                </div>
+                <span class="formula-source">
+                    Referencia: ISSN (2017).
+                </span>
+            </div>
+        </article>
+
+        <!-- GRASAS -->
+        <article class="formula-card">
+            <div class="formula-number">05</div>
+            <div class="formula-content">
+                <h3>Grasas</h3>
+                <p>
+                    Calculamos una cantidad estimada de grasas
+                    en función del peso corporal.
+                </p>
+
+                <div class="formula-box">
+                    <p>Grasas = Peso × 0.8 g</p>
+                    <small>9 kcal por cada gramo de grasa.</small>
+                </div>
+            </div>
+        </article>
+
+        <!-- CARBOHIDRATOS -->
+        <article class="formula-card">
+            <div class="formula-number">06</div>
+            <div class="formula-content">
+                <h3>Carbohidratos</h3>
+                <p>
+                    Calculamos los carbohidratos utilizando
+                    las calorías restantes después de proteínas
+                    y grasas.
+                </p>
+
+                <div class="formula-box">
+                    <p>
+                        Carbohidratos =
+                        (Calorías - (Proteínas × 4) - (Grasas × 9)) / 4
+                    </p>
+                    <small>4 kcal por cada gramo de carbohidrato.</small>
+                </div>
+                <span class="formula-source">
+                    Referencia: Factores generales de Atwater.
+                </span>
+            </div>
+        </article>
+
+        <!-- IMC -->
+        <article class="formula-card">
+            <div class="formula-number">07</div>
+            <div class="formula-content">
+                <h3>Índice de Masa Corporal (IMC)</h3>
+                <p>
+                    Relaciona el peso corporal con la altura
+                    para obtener un indicador antropométrico.
+                </p>
+
+                <div class="formula-box">
+                    <p>IMC = Peso / (Altura en metros)²</p>
+                </div>
+                <span class="formula-source">
+                    Fuente: Organización Mundial de la Salud (OMS).
+                </span>
+            </div>
+        </article>
+
+        <!-- FUENTES -->
+        <div class="references">
+            <h3>Referencias científicas</h3>
+
+            <ul>
+                <li>
+                    Mifflin et al. (1990).
+                    <a href="https://doi.org/10.1093/ajcn/51.2.241"
+                       target="_blank" rel="noopener">
+                        A new predictive equation for resting energy expenditure.
+                    </a>
+                </li>
+
+                <li>
+                    Jäger et al. (2017).
+                    <a href="https://doi.org/10.1186/s12970-017-0177-8"
+                       target="_blank" rel="noopener">
+                        ISSN Position Stand: Protein and Exercise.
+                    </a>
+                </li>
+
+                <li>
+                    Organización Mundial de la Salud.
+                    <a href="https://www.who.int/"
+                       target="_blank" rel="noopener">
+                        World Health Organization.
+                    </a>
+                </li>
+
+                <li>
+                    USDA.
+                    <a href="https://www.nal.usda.gov/"
+                       target="_blank" rel="noopener">
+                        National Agricultural Library.
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <p class="formulas-footer">
+            FITCONTROL © 2026 · Cálculos nutricionales estimados.
+        </p>
+
+    </div>
+</section>
+
 
     <section id="resultados" class="dashboard hidden">
 

@@ -21,7 +21,8 @@ public class FitnessService {
         }
 
         double tmb;
-/* formulas para calcular peso */
+    /* formulas para calcular peso */
+    
         if (sexo.equalsIgnoreCase("M")) {
             tmb = (10 * peso) + (6.25 * altura)
                     - (5 * edad) + 5;
