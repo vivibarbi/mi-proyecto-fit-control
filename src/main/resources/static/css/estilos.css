@@ -1,149 +1,314 @@
+
+/* =====================================
+   FITCONTROL - DISEÑO PROFESIONAL
+   ===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #17212c;
-    color: white;
+:root {
+    --background: #061426;
+    --panel: #10243a;
+    --panel-dark: #07182b;
+    --green: #00e69a;
+    --green-light: #53ffbd;
+    --blue: #168bff;
+    --yellow: #ffb000;
+    --purple: #a13cff;
+    --text: #f4f8ff;
+    --muted: #a9bbcf;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 25px;
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background:
+        radial-gradient(ellipse at top left, #073e65 0%, transparent 45%),
+        radial-gradient(ellipse at bottom right, #063d39 0%, transparent 40%),
+        var(--background);
+    color: var(--text);
+    min-height: 100vh;
 }
+
+/* CONTENEDOR */
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 30px 24px;
+}
+
+/* ENCABEZADO */
 
 header {
     text-align: center;
-    padding: 25px;
+    padding: 35px 20px;
 }
 
 header h1 {
-    color: #38d996;
-    font-size: 36px;
-    letter-spacing: 3px;
+    font-size: clamp(32px, 5vw, 55px);
+    font-weight: 900;
+    letter-spacing: 2px;
+    background: linear-gradient(90deg, #ffffff, #00e69a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 10px;
 }
 
 header p {
-    color: #aab5bd;
+    color: var(--muted);
+    font-size: 17px;
+    font-weight: 500;
 }
 
+/* PANELES */
+
 .panel {
-    background: #1b2935;
-    padding: 25px;
-    border-radius: 14px;
-    margin-bottom: 25px;
+    background: linear-gradient(145deg, #142d47, #0b1d31);
+    padding: 28px;
+    border: 1px solid #285071;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.panel:hover {
+    box-shadow: 0 15px 40px rgba(0, 230, 154, 0.09);
 }
 
 h2 {
-    color: #38d996;
+    color: var(--green-light);
+    font-size: 25px;
+    font-weight: 800;
 }
+
+/* FORMULARIOS */
 
 .form-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    gap: 22px;
 }
 
 label {
     display: block;
-    margin-bottom: 8px;
-    color: #cbd5dc;
+    margin-bottom: 9px;
+    color: #d6e4f2;
+    font-size: 14px;
+    font-weight: 700;
 }
 
-input, select {
+input,
+select {
     width: 100%;
-    padding: 13px;
-    background: #101820;
+    padding: 15px;
+    background: #07182b;
     color: white;
-    border: 1px solid #40515e;
-    border-radius: 8px;
+    border: 1px solid #31516c;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: .3s;
 }
+
+input:focus,
+select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(0, 230, 154, 0.15);
+}
+
+input::placeholder {
+    color: #8195a9;
+}
+
+/* BOTONES */
 
 button {
     margin-top: 22px;
-    padding: 14px 25px;
+    padding: 15px 30px;
     border: none;
-    border-radius: 8px;
-    background: #38d996;
-    color: #101820;
-    font-weight: bold;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #00d98c, #00f5ad);
+    color: #032219;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 800;
     cursor: pointer;
+    box-shadow: 0 5px 20px rgba(0, 230, 154, 0.25);
+    transition: all .3s ease;
 }
 
 button:hover {
-    background: #24b77b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 28px rgba(0, 230, 154, 0.4);
+    background: linear-gradient(90deg, #00f5ad, #53ffbd);
 }
+
+button:active {
+    transform: scale(.97);
+}
+
+/* TARJETAS DEL DASHBOARD */
 
 .dashboard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 18px;
+    margin-bottom: 28px;
 }
 
 .card {
-    background: #1b2935;
-    border-radius: 12px;
-    padding: 20px;
+    background: linear-gradient(145deg, #142e49, #0b1c30);
+    border: 1px solid #31516c;
+    border-radius: 17px;
+    padding: 23px 15px;
     text-align: center;
+    transition: all .3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0, 230, 154, .12);
 }
 
 .card h3 {
     font-size: 14px;
-    color: #b5c0c8;
+    color: #c1d1e0;
+    font-weight: 600;
 }
 
 .card p {
-    color: #38d996;
-    font-size: 27px;
-    font-weight: bold;
+    color: var(--green-light);
+    font-size: 28px;
+    font-weight: 900;
 }
+
+/* COLORES INDIVIDUALES DE TARJETAS */
+
+.card:nth-child(1) {
+    background: linear-gradient(145deg, #0879e8, #0737a7);
+    border-color: #168bff;
+}
+
+.card:nth-child(2) {
+    background: linear-gradient(145deg, #008f68, #064d49);
+    border-color: #00d98c;
+}
+
+.card:nth-child(3) {
+    background: linear-gradient(145deg, #e99b00, #c94b00);
+    border-color: #ffb000;
+}
+
+.card:nth-child(4) {
+    background: linear-gradient(145deg, #862be0, #4d0caa);
+    border-color: #a13cff;
+}
+
+.card:nth-child(1) p,
+.card:nth-child(2) p,
+.card:nth-child(3) p,
+.card:nth-child(4) p {
+    color: white;
+}
+
+/* MACRONUTRIENTES */
 
 .macro-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    gap: 18px;
 }
 
 .macro {
     text-align: center;
-    padding: 20px;
-    border-radius: 12px;
-    background: #101820;
+    padding: 22px;
+    border-radius: 14px;
+    background: #07182b;
+    border: 1px solid #25435e;
+    transition: .3s;
+}
+
+.macro:hover {
+    transform: translateY(-4px);
 }
 
 .macro p {
-    font-size: 26px;
-    font-weight: bold;
+    font-size: 27px;
+    font-weight: 900;
+    color: white;
 }
 
 .proteina {
-    border-bottom: 4px solid #38d996;
+    border-bottom: 4px solid #00e69a;
 }
 
 .carbo {
-    border-bottom: 4px solid #eab308;
+    border-bottom: 4px solid #ffb000;
 }
 
 .grasa {
-    border-bottom: 4px solid #38a6e8;
+    border-bottom: 4px solid #168bff;
 }
 
+/* ELEMENTOS OCULTOS */
+
 .hidden {
-    display: none;
+    display: none !important;
 }
+
+/* GRÁFICOS */
 
 canvas {
     margin-top: 30px;
     max-height: 350px;
+    width: 100% !important;
 }
 
-@media(max-width: 700px) {
+/* SCROLL */
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #061426;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #00c98b;
+    border-radius: 10px;
+}
+
+/* RESPONSIVE - TABLETS Y CELULARES */
+
+@media (max-width: 850px) {
     .dashboard {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .container {
+        padding: 12px;
+    }
+
+    header {
+        padding: 22px 10px;
+    }
+
+    header h1 {
+        font-size: 34px;
     }
 
     .form-grid {
@@ -154,7 +319,17 @@ canvas {
         grid-template-columns: 1fr;
     }
 
-    .container {
-        padding: 12px;
+    .panel {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    button {
+        width: 100%;
     }
 }
