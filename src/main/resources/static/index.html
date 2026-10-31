@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitControl - Panel Fitness</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>FIT-CONTROL</h1>
+        <p>Tu progreso, tu salud, tu control :&#41; </p>
+    </header>
+
+    <section class="panel">
+
+        <h2>Datos personales</h2>
+
+        <form id="fitnessForm">
+
+            <div class="form-grid">
+
+                <div>
+                    <label>Peso actual (kg)</label>
+                    <input type="number" id="peso"
+                           step="0.1" min="1" required>
+                </div>
+
+                <div>
+                    <label>Altura (cm)</label>
+                    <input type="number" id="altura"
+                           min="1" required>
+                </div>
+
+                <div>
+                    <label>Edad</label>
+                    <input type="number" id="edad"
+                           min="18" max="120" required>
+                </div>
+
+                <div>
+                    <label>Sexo utilizado para la fórmula</label>
+                    <select id="sexo">
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Actividad física</label>
+                    <select id="actividad">
+                        <option value="SEDENTARIO">Sedentario</option>
+                        <option value="LIGERO">Ligero</option>
+                        <option value="MODERADO">Moderado</option>
+                        <option value="ALTO">Alto</option>
+                        <option value="MUY_ALTO">Muy alto</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Objetivo</label>
+                    <select id="objetivo">
+                        <option value="PERDER">Perder peso</option>
+                        <option value="MANTENER">Mantener peso</option>
+                        <option value="GANAR">Ganar masa</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <button type="submit">CALCULAR RESULTADOS</button>
+
+        </form>
+
+    </section>
+
+    <section id="resultados" class="dashboard hidden">
+
+        <div class="card">
+            <h3>Metabolismo basal</h3>
+            <p id="tmb">0</p>
+            <small>kcal/día</small>
+        </div>
+
+        <div class="card">
+            <h3>Gasto energético diario</h3>
+            <p id="tdee">0</p>
+            <small>kcal/día</small>
+        </div>
+
+        <div class="card">
+            <h3>Calorías objetivo</h3>
+            <p id="calorias">0</p>
+            <small>kcal/día</small>
+        </div>
+
+        <div class="card">
+            <h3>Índice de masa corporal</h3>
+            <p id="imc">0</p>
+            <small>IMC</small>
+        </div>
+
+    </section>
+
+    <section id="macros" class="panel hidden">
+
+        <h2>Mis macronutrientes diarios</h2>
+
+        <div class="macro-grid">
+
+            <div class="macro proteina">
+                <h3>Proteínas</h3>
+                <p id="proteinas">0 g</p>
+            </div>
+
+            <div class="macro carbo">
+                <h3>Carbohidratos</h3>
+                <p id="carbohidratos">0 g</p>
+            </div>
+
+            <div class="macro grasa">
+                <h3>Grasas</h3>
+                <p id="grasas">0 g</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="panel">
+
+        <h2>Control de peso</h2>
+
+        <form id="pesoForm">
+
+            <label>Registrar peso (kg)</label>
+
+            <input type="number" id="nuevoPeso"
+                   step="0.1" min="1" required>
+
+            <button type="submit">Guardar peso</button>
+
+        </form>
+
+        <canvas id="graficoPeso"></canvas>
+
+    </section>
+
+</div>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

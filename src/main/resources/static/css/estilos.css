@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #17212c;
+    color: white;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px;
+}
+
+header {
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    color: #38d996;
+    font-size: 36px;
+    letter-spacing: 3px;
+}
+
+header p {
+    color: #aab5bd;
+}
+
+.panel {
+    background: #1b2935;
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 25px;
+}
+
+h2 {
+    color: #38d996;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #cbd5dc;
+}
+
+input, select {
+    width: 100%;
+    padding: 13px;
+    background: #101820;
+    color: white;
+    border: 1px solid #40515e;
+    border-radius: 8px;
+}
+
+button {
+    margin-top: 22px;
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #38d996;
+    color: #101820;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #24b77b;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.card {
+    background: #1b2935;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #b5c0c8;
+}
+
+.card p {
+    color: #38d996;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.macro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.macro {
+    text-align: center;
+    padding: 20px;
+    border-radius: 12px;
+    background: #101820;
+}
+
+.macro p {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.proteina {
+    border-bottom: 4px solid #38d996;
+}
+
+.carbo {
+    border-bottom: 4px solid #eab308;
+}
+
+.grasa {
+    border-bottom: 4px solid #38a6e8;
+}
+
+.hidden {
+    display: none;
+}
+
+canvas {
+    margin-top: 30px;
+    max-height: 350px;
+}
+
+@media(max-width: 700px) {
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .macro-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        padding: 12px;
+    }
+}
