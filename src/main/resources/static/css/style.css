@@ -1,3 +1,292 @@
+/* ===== ELEMENTOS NUEVOS DE FITCONTROL ===== */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 span,
+.site-footer h2 span {
+    color: #00e99a;
+}
+
+.brand-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.hero-subtitle {
+    font-size: 19px;
+    font-weight: 700;
+}
+
+.hero-description {
+    color: #a9bdd0;
+    font-size: 14px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    margin: 0 0 6px;
+}
+
+.section-heading p {
+    color: #a9bdd0;
+    margin: 0;
+    font-size: 14px;
+}
+
+.heading-icon {
+    font-size: 30px;
+}
+
+.form-field {
+    min-width: 0;
+}
+
+.form-actions {
+    text-align: center;
+}
+
+.form-actions button {
+    min-width: 280px;
+}
+
+.result-icon,
+.macro-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.card small {
+    color: white;
+    opacity: 0.85;
+}
+
+.card-blue {
+    background: linear-gradient(135deg, #087ff5, #083fbd);
+}
+
+.card-green {
+    background: linear-gradient(135deg, #00a978, #075a56);
+}
+
+.card-orange {
+    background: linear-gradient(135deg, #f7a900, #d94a00);
+}
+
+.card-purple {
+    background: linear-gradient(135deg, #9138ef, #4b0bb5);
+}
+
+.formulas {
+    margin-bottom: 25px;
+}
+
+.formulas-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.formulas-header {
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.formulas-header h2 {
+    font-size: 30px;
+}
+
+.formulas-header p {
+    color: #a9bdd0;
+}
+
+.formulas-tag {
+    color: #00e99a;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.formula-card {
+    display: flex;
+    gap: 20px;
+    padding: 25px;
+    background: linear-gradient(145deg, #142d47, #0c1e32);
+    border: 1px solid rgba(85, 174, 255, 0.22);
+    border-radius: 17px;
+    transition: transform 0.25s;
+}
+
+.formula-card:hover {
+    transform: translateY(-3px);
+}
+
+.formula-number {
+    color: #00e99a;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.formula-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.formula-content h3 {
+    color: white;
+    font-size: 19px;
+}
+
+.formula-content p {
+    color: #b7c9d9;
+    line-height: 1.7;
+}
+
+.formula-box {
+    padding: 17px;
+    margin: 15px 0;
+    background: #071729;
+    border: 1px solid rgba(0, 233, 154, 0.2);
+    border-radius: 12px;
+}
+
+.formula-box strong {
+    color: #62ffc0;
+}
+
+.formula-box small {
+    color: #a9bdd0;
+}
+
+.formula-source {
+    display: block;
+    color: #00e99a;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.activity-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.activity-list span,
+.goal-list div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    background: #071729;
+    border-radius: 8px;
+    color: #dce9f5;
+}
+
+.activity-list b,
+.goal-list strong {
+    color: #00e99a;
+}
+
+.goal-list {
+    display: grid;
+    gap: 10px;
+}
+
+.weight-form {
+    display: flex;
+    align-items: end;
+    gap: 18px;
+}
+
+.weight-form .form-field {
+    flex: 1;
+}
+
+.weight-form button {
+    margin-top: 0;
+}
+
+.chart-container {
+    position: relative;
+    width: 100%;
+    margin-top: 25px;
+    min-height: 250px;
+}
+
+.references ul {
+    padding-left: 22px;
+    line-height: 2;
+    color: #c3d3e0;
+}
+
+.references a {
+    color: #62ffc0;
+    text-decoration: none;
+}
+
+.references a:hover {
+    text-decoration: underline;
+}
+
+.site-footer {
+    text-align: center;
+    padding: 35px 15px;
+    color: #a9bdd0;
+}
+
+.site-footer h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    letter-spacing: 2px;
+}
+
+.site-footer small {
+    font-size: 12px;
+}
+
+@media (max-width: 650px) {
+    .formula-card {
+        padding: 18px;
+        gap: 12px;
+    }
+
+    .formula-number {
+        font-size: 23px;
+    }
+
+    .formulas-header h2 {
+        font-size: 24px;
+    }
+
+    .activity-list {
+        grid-template-columns: 1fr;
+    }
+
+    .weight-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .weight-form button {
+        width: 100%;
+    }
+
+    .form-actions button {
+        min-width: 0;
+    }
+}
+
+
 
 /* SECCION FORMULAS */
 
