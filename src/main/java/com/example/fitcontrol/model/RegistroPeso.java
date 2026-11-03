@@ -7,35 +7,45 @@ import java.time.LocalDate;
 @Table(name = "registro_peso")
 public class RegistroPeso {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
 
-    private double peso;
+private double peso;
 
-    private LocalDate fecha;
+private LocalDate fecha;
 
-    public RegistroPeso() {
-    }
+@ManyToOne(fetch = FetchType.LAZY)
+@JoinColumn(name = "usuario_id", nullable = false)
+private Usuario usuario;
 
-    public RegistroPeso(double peso) {
-        this.peso = peso;
-        this.fecha = LocalDate.now();
-    }
+public RegistroPeso(double peso, Usuario usuario) {
+    this.peso = peso;
+    this.fecha = LocalDate.now();
+    this.usuario = usuario;
+}
 
-    public Long getId() {
-        return id;
-    }
+public Long getId() {
+    return id;
+}
 
-    public double getPeso() {
-        return peso;
-    }
+public double getPeso() {
+    return peso;
+}
 
-    public LocalDate getFecha() {
-        return fecha;
-    }
+public LocalDate getFecha() {
+    return fecha;
+}
 
-    public void setPeso(double peso) {
-        this.peso = peso;
+public Usuario getUsuario() {
+    return usuario;
+}
+
+public void setPeso(double peso) {
+    this.peso = peso;
+}
+
+public void setUsuario(Usuario usuario) {
+    this.usuario = usuario;
     }
 }

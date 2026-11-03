@@ -1,8 +1,4 @@
 
-/* =====================================
-   FITCONTROL - DISEÑO PROFESIONAL
-   ===================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 * {
@@ -26,8 +22,8 @@ body {
     margin: 0;
     font-family: 'Inter', sans-serif;
     background:
-    radial-gradient(ellipse at top left, #dae2e8 0%, transparent 45%), 
-    radial-gradient(ellipse at bottom right, #063d39 0%, transparent 40%), 
+    radial-gradient(ellipse at top left, #88aac4 0%, transparent 45%), 
+    radial-gradient(ellipse at bottom right, #0c756e 0%, transparent 40%), 
     var(--background);
     
     color: var(--text);
@@ -131,7 +127,8 @@ input::placeholder {
 /* BOTONES */
 
 button {
-    margin-top: 22px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 15px 30px;
     border: none;
     border-radius: 50px;

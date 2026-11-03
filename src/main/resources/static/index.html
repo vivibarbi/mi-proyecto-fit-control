@@ -53,11 +53,83 @@
 
     </header>
 
+<!-- ================= LOGIN ================= -->
+
+    <section id="authSection" class="container">
+        <div class="panel">
+            <h1>FITCONTROL</h1>
+            <p>Tu salud, tu progreso, tu control.</p>
+
+            <div id="loginView">
+                <h2>Iniciar sesión</h2>
+
+                <form id="loginForm">
+                    <label for="loginEmail">Correo electrónico</label>
+                    <input id="loginEmail" type="email"
+                        required autocomplete="email">
+
+                    <label for="loginPassword">Contraseña</label>
+                    <input id="loginPassword" type="password"
+                        required autocomplete="current-password">
+
+                    <button type="submit">Iniciar sesión</button>
+                </form>
+
+                <p>¿No tienes cuenta?
+                    <button type="button" id="showRegister">
+                        Registrarse
+                    </button>
+                </p>
+
+                <a href="/oauth2/authorization/google">
+                    <button type="button">Continuar con Google</button>
+                </a>
+            </div>
+
+            <div id="registerView" hidden>
+                <h2>Crear cuenta</h2>
+
+                <form id="registerForm">
+                    <label for="registerName">Nombre</label>
+                    <input id="registerName" type="text"
+                        required autocomplete="name">
+
+                    <label for="registerEmail">Correo electrónico</label>
+                    <input id="registerEmail" type="email"
+                        required autocomplete="email">
+
+                    <label for="registerPassword">Contraseña</label>
+                    <input id="registerPassword" type="password"
+                        minlength="8" required
+                        autocomplete="new-password">
+
+                    <button type="submit">Crear cuenta</button>
+                </form>
+
+                <p>¿Ya tienes cuenta?
+                    <button type="button" id="showLogin">
+                        Iniciar sesión
+                    </button>
+                </p>
+            </div>
+
+            <p id="authMessage" role="alert"></p>
+        </div>
+    </section>
+
+
+    <main id="appContent" hidden>
+
+    
 
     <!-- ================= FORMULARIO ================= -->
 
     <section class="panel">
-
+        <div>
+            <button type="button" onclick="cerrarSesion()">
+                Cerrar sesión
+            </button>
+        </div>
         <div class="section-heading">
 
             <div>
@@ -223,6 +295,8 @@
         </div>
 
     </section>
+
+</main>
 
 
     <!-- ================= METODOLOGÍA ================= -->
@@ -502,12 +576,10 @@
 
 
     <!-- ================= CONTROL DE PESO ================= -->
-
+<!--
     <section class="panel weight-panel">
 
         <div class="section-heading">
-
-            
 
             <div>
                 <h2>Mi progreso de peso</h2>
@@ -547,7 +619,7 @@
         </div>
 
     </section>
-
+-->
 
     <!-- ================= REFERENCIAS ================= -->
 
@@ -616,7 +688,7 @@
         </p>
 
         <small>
-            FITCONTROL © 2026 · Cálculos nutricionales estimados.
+            VIVIFIT © 2026 · Cálculos nutricionales estimados.
         </small>
 
     </footer>
