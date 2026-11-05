@@ -1,4 +1,3 @@
-
 package com.example.fitcontrol.controller;
 
 import com.example.fitcontrol.model.RegistroPeso;

@@ -56,6 +56,7 @@
 
 .form-actions button {
     min-width: 280px;
+    margin: 15px;
 }
 
 .result-icon,
@@ -213,7 +214,7 @@
 }
 
 .weight-form button {
-    margin-top: 0;
+    margin-top: 15;
 }
 
 .chart-container {
@@ -282,6 +283,7 @@
     }
 
     .form-actions button {
+        margin: 15px;
         min-width: 0;
     }
 }
@@ -594,3 +596,593 @@
         letter-spacing: 2px;
     }
 }
+
+
+/* =========================================
+   FITCONTROL - IDENTIDAD SPORT GYM
+   PALETA: ROJO, NEGRO Y BLANCO
+   ========================================= */
+
+:root {
+    --background: #090909;
+    --panel: #171717;
+    --panel-dark: #101010;
+    --green: #e50914;
+    --green-light: #ff3038;
+    --blue: #e50914;
+    --yellow: #ff3038;
+    --purple: #b50912;
+    --text: #ffffff;
+    --muted: #bdbdbd;
+}
+
+/* FONDO GENERAL */
+
+body {
+    background:
+        radial-gradient(ellipse at top left, #292929 0%, transparent 45%),
+        radial-gradient(ellipse at bottom right, #35080b 0%, transparent 40%),
+        #090909;
+    color: #ffffff;
+}
+
+/* ENCABEZADOS */
+
+header h1 {
+    background: linear-gradient(90deg, #ffffff, #e50914);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+h2,
+.section-heading h2 {
+    color: #ff3038;
+}
+
+/* HERO */
+
+.hero {
+    background: #090909;
+}
+
+.hero-overlay {
+    background: linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.92),
+        rgba(15, 15, 15, 0.65),
+        rgba(0, 0, 0, 0.90)
+    );
+}
+
+.hero h1 span,
+.site-footer h2 span {
+    color: #e50914;
+}
+
+.hero-subtitle,
+.formulas-tag,
+.formula-number,
+.formula-source {
+    color: #ff3038;
+}
+
+/* PANELES */
+
+.panel {
+    background: linear-gradient(145deg, #202020, #111111);
+    border: 1px solid #383838;
+}
+
+.panel:hover {
+    box-shadow: 0 15px 40px rgba(229, 9, 20, 0.12);
+}
+
+/* FORMULARIOS */
+
+input,
+select {
+    background: #101010;
+    color: #ffffff;
+    border: 1px solid #444444;
+}
+
+input:focus,
+select:focus {
+    border-color: #e50914;
+    box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.18);
+}
+
+label {
+    color: #eeeeee;
+}
+
+/* BOTONES */
+
+button {
+    background: linear-gradient(90deg, #b50912, #ed1c24);
+    color: #ffffff;
+    box-shadow: 0 5px 20px rgba(229, 9, 20, 0.25);
+}
+
+button:hover {
+    background: linear-gradient(90deg, #ed1c24, #ff3038);
+    color: #ffffff;
+    box-shadow: 0 8px 28px rgba(229, 9, 20, 0.4);
+}
+
+/* TARJETAS DE RESULTADOS */
+
+.card {
+    background: linear-gradient(145deg, #222222, #111111);
+    border: 1px solid #444444;
+}
+
+.card:nth-child(1),
+.card-blue {
+    background: linear-gradient(145deg, #292929, #151515);
+    border-color: #e50914;
+}
+
+.card:nth-child(2),
+.card-green {
+    background: linear-gradient(145deg, #303030, #151515);
+    border-color: #b50912;
+}
+
+.card:nth-child(3),
+.card-orange {
+    background: linear-gradient(145deg, #292929, #151515);
+    border-color: #777777;
+}
+
+.card:nth-child(4),
+.card-purple {
+    background: linear-gradient(145deg, #303030, #151515);
+    border-color: #e50914;
+}
+
+.card p {
+    color: #ff3038;
+}
+
+/* MACRONUTRIENTES */
+
+.macro {
+    background: #151515;
+    border-color: #383838;
+}
+
+.proteina,
+.carbo,
+.grasa {
+    border-bottom-color: #e50914;
+}
+
+.macro p {
+    color: #ffffff;
+}
+
+/* FÓRMULAS */
+
+.formulas {
+    background: #0c0c0c;
+    color: #ffffff;
+}
+
+.formula-card,
+.references {
+    background: #171717;
+    border: 1px solid #383838;
+}
+
+.formula-card:hover {
+    border-color: #e50914;
+}
+
+.formula-box {
+    background: #101010;
+    border-color: #e50914;
+}
+
+.formula-box strong,
+.formula-box p,
+.formula-number,
+.formula-source {
+    color: #ff3038;
+}
+
+.activity-list span,
+.goal-list div {
+    background: #222222;
+}
+
+.activity-list b,
+.goal-list strong {
+    color: #ff3038;
+}
+
+.references a {
+    color: #ff3038;
+}
+
+/* PIE DE PÁGINA */
+
+.site-footer {
+    background: #050505;
+    color: #bdbdbd;
+}
+
+.site-footer h2 {
+    color: #ffffff;
+}
+
+/* BARRA DE DESPLAZAMIENTO */
+
+::-webkit-scrollbar-track {
+    background: #090909;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #e50914;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ff3038;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+    .panel {
+        background: #171717;
+    }
+}
+
+
+    /* DISEÑO SPORT GYM PARA FITCONTROL */
+
+        body {
+            background: #090909;
+            color: #fff;
+        }
+
+        .fc-nav {
+            background: #080808;
+            padding: 17px 6%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #e50914;
+        }
+
+        .fc-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 27px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .fc-logo span {
+            color: #e50914;
+        }
+
+        .fc-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .fc-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            transition: .3s;
+        }
+
+        .fc-links a:hover {
+            color: #e50914;
+        }
+
+        .fc-hero {
+            min-height: 570px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .fc-hero img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .fc-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                90deg,
+                rgba(0,0,0,.94),
+                rgba(0,0,0,.65),
+                rgba(0,0,0,.25)
+            );
+        }
+
+        .fc-hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 70px 9%;
+            max-width: 850px;
+        }
+
+        .fc-tag {
+            color: #ed1c24;
+            font-weight: 900;
+            letter-spacing: 4px;
+            font-size: 13px;
+        }
+
+        .fc-hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(45px, 8vw, 85px);
+            font-weight: 700;
+            line-height: 1.05;
+            color: white;
+            margin: 18px 0;
+        }
+
+        .fc-hero h1 span {
+            color: #ed1c24;
+        }
+
+        .fc-hero p {
+            color: #ddd;
+            font-size: 18px;
+            max-width: 550px;
+            line-height: 1.7;
+        }
+
+        .fc-button {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 15px 30px;
+            background: #e50914;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 900;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: .3s;
+        }
+
+        .fc-button:hover {
+            background: white;
+            color: #e50914;
+            transform: translateY(-3px);
+        }
+
+        .fc-section {
+            padding: 65px 20px;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .fc-section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .fc-section-title span {
+            color: #e50914;
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 3px;
+        }
+
+        .fc-section-title h2 {
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(30px, 5vw, 43px);
+            margin-top: 10px;
+        }
+
+        .fc-section-title p {
+            color: #aaa;
+        }
+
+        #authSection {
+            max-width: 620px;
+            margin: 55px auto;
+            padding: 0 18px;
+        }
+
+        #authSection .panel {
+            background: #171717;
+            border: 1px solid #393939;
+            border-top: 4px solid #e50914;
+            border-radius: 12px;
+            padding: 35px;
+        }
+
+        #authSection h1 {
+            font-family: 'Oswald', sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        #authSection h2 {
+            color: #ed1c24;
+            margin-top: 20px;
+        }
+
+        #authSection p {
+            color: #bbb;
+        }
+
+        #authSection input {
+            margin-bottom: 16px;
+        }
+
+        #authSection button {
+            width: 100%;
+        }
+
+        #authSection a {
+            text-decoration: none;
+        }
+
+        #authSection [id="showRegister"],
+        #authSection [id="showLogin"] {
+            width: auto;
+            padding: 8px 15px;
+            margin: 5px;
+        }
+
+        .fc-panel {
+            background: #171717;
+            border: 1px solid #383838;
+            border-top: 3px solid #e50914;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+
+        .fc-panel h2 {
+            color: #ed1c24;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .fc-panel p {
+            color: #aaa;
+        }
+
+        .fc-results .card {
+            background: #191919;
+            border: 1px solid #e50914;
+            border-radius: 12px;
+        }
+
+        .fc-results .card h3 {
+            color: #ddd;
+        }
+
+        .fc-results .card p {
+            color: #ed1c24;
+        }
+
+        .fc-macros .macro {
+            background: #191919;
+            border: 1px solid #444;
+            border-bottom: 4px solid #e50914;
+            border-radius: 12px;
+        }
+
+        .fc-macros .macro h3 {
+            color: white;
+        }
+
+        .fc-macros .macro p {
+            color: #ed1c24;
+        }
+
+        .fc-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .fc-info-card {
+            background: #171717;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .fc-info-card i {
+            font-size: 35px;
+            color: #e50914;
+            margin-bottom: 15px;
+        }
+
+        .fc-info-card h3 {
+            color: white;
+        }
+
+        .fc-info-card p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .fc-footer {
+            background: #050505;
+            border-top: 2px solid #e50914;
+            text-align: center;
+            padding: 35px 15px;
+            color: #aaa;
+        }
+
+        .fc-footer h2 {
+            color: white;
+            font-family: 'Oswald', sans-serif;
+            letter-spacing: 3px;
+        }
+
+        .fc-footer span {
+            color: #e50914;
+        }
+
+        .fc-footer p {
+            color: #aaa;
+        }
+
+        .fc-footer small {
+            color: #777;
+        }
+
+        [hidden] {
+            display: none !important;
+        }
+
+        @media(max-width: 700px) {
+            .fc-nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .fc-links {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .fc-hero {
+                min-height: 450px;
+            }
+
+            .fc-hero-content {
+                padding: 45px 22px;
+            }
+
+            .fc-info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #authSection .panel,
+            .fc-panel {
+                padding: 20px;
+            }
+        }

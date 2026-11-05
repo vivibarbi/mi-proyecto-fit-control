@@ -3,699 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090909">
+    <meta name="description" content="FitControl: calcula tus necesidades energéticas y nutricionales.">
 
-    <meta name="theme-color" content="#061426">
-    <meta name="description" content="FitControl: calcula tus necesidades energéticas, controla tu peso y conoce tus macronutrientes.">
+    <title>FITCONTROL | Entrena y transforma tu cuerpo</title>
 
-    <title>FitControl | Tu panel fitness</title>
-
-    <!-- Estilos -->
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Tipografía e iconos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
 
-<div class="container">
+<!-- NAVEGACIÓN -->
+<nav class="fc-nav">
+    <a href="#" class="fc-logo">
+        FIT<span>CONTROL</span>
+    </a>
 
-    <!-- ================= ENCABEZADO ================= -->
+    <div class="fc-links">
+        <a href="#inicio">INICIO</a>
+        <a href="#authSection">MI CUENTA</a>
+        <a href="#calculadora" id="appContentnav" hidden>CALCULADORA</a>
+        <a href="#metodologia">FÓRMULAS</a>
+    </div>
+</nav>
 
-    <header class="hero">
-        
-        <div class="hero-image">
-            <img src="/images/fitness-hero.jpg"
-                alt="Persona entrenando en el gimnasio">
-        </div>
+<!-- PORTADA -->
+<header class="fc-hero" id="inicio">
 
-    <div class="hero-overlay"></div>
+    <img
+        src="/images/slider1.jpg"
+        alt="Entrenamiento profesional en gimnasio">
 
+    <div class="fc-hero-content">
 
-        <div class="hero-content">
-            
-            <h1>FIT<span>CONTROL</span></h1>
+        <span class="fc-tag">TU CAMBIO COMIENZA HOY</span>
 
-            <p class="hero-subtitle">
-                Entrena • Nutre • Logra tus metas
+        <h1>
+            SUPERA TUS<br>
+            <span>LÍMITES</span>
+        </h1>
+
+        <p>
+            Conoce tu cuerpo, calcula tus necesidades
+            nutricionales y construye una mejor versión de ti.
+        </p>
+
+        <a href="#authSection" class="fc-button">
+            COMENZAR AHORA
+            <i class="fas fa-arrow-right"></i>
+        </a>
+
+    </div>
+</header>
+
+<!-- ACCESO Y REGISTRO -->
+<section id="authSection">
+
+    <div class="fc-section-title">
+        <span>ACCEDE A FITCONTROL</span>
+        <h2>COMIENZA TU PROGRESO</h2>
+        <p>Inicia sesión o crea tu cuenta para acceder a tu calculadora.</p>
+    </div>
+
+    <div class="panel">
+
+        <h1>FIT<span style="color:#e50914">CONTROL</span></h1>
+        <p style="text-align:center">Tu salud, tu progreso, tu control.</p>
+
+        <div id="loginView">
+
+            <h2>Iniciar sesión</h2>
+
+            <form id="loginForm">
+
+                <label for="loginEmail">Correo electrónico</label>
+                <input id="loginEmail" type="email"
+                    required autocomplete="email">
+
+                <label for="loginPassword">Contraseña</label>
+                <input id="loginPassword" type="password"
+                    required autocomplete="current-password">
+
+                <button type="submit">INICIAR SESIÓN</button>
+
+            </form>
+
+            <p>¿No tienes cuenta?
+                <button type="button" id="showRegister">
+                    REGISTRARSE
+                </button>
             </p>
 
-            <p class="hero-description">
-                Tu progreso comienza conociendo tu cuerpo.
+            <a href="/oauth2/authorization/google">
+                <button type="button">
+                    <i class="fab fa-google"></i>
+                    CONTINUAR CON GOOGLE
+                </button>
+            </a>
+
+        </div>
+
+        <div id="registerView" hidden>
+
+            <h2>Crear cuenta</h2>
+
+            <form id="registerForm">
+
+                <label for="registerName">Nombre</label>
+                <input id="registerName" type="text"
+                    required autocomplete="name">
+
+                <label for="registerEmail">Correo electrónico</label>
+                <input id="registerEmail" type="email"
+                    required autocomplete="email">
+
+                <label for="registerPassword">Contraseña</label>
+                <input id="registerPassword" type="password"
+                    minlength="8" required autocomplete="new-password">
+
+                <button type="submit">CREAR CUENTA</button>
+
+            </form>
+
+            <p>¿Ya tienes cuenta?
+                <button type="button" id="showLogin">
+                    INICIAR SESIÓN
+                </button>
             </p>
+
         </div>
 
-    </header>
+        <p id="authMessage" role="alert"></p>
 
-<!-- ================= LOGIN ================= -->
+    </div>
+</section>
 
-    <section id="authSection" class="container">
-        <div class="panel">
-            <h1>FITCONTROL</h1>
-            <p>Tu salud, tu progreso, tu control.</p>
+<!-- CONTENIDO DE LA APLICACIÓN calcular datos-->
+<main id="appContent" hidden>
 
-            <div id="loginView">
-                <h2>Iniciar sesión</h2>
+    <section class="fc-section" id="calculadora">
 
-                <form id="loginForm">
-                    <label for="loginEmail">Correo electrónico</label>
-                    <input id="loginEmail" type="email"
-                        required autocomplete="email">
-
-                    <label for="loginPassword">Contraseña</label>
-                    <input id="loginPassword" type="password"
-                        required autocomplete="current-password">
-
-                    <button type="submit">Iniciar sesión</button>
-                </form>
-
-                <p>¿No tienes cuenta?
-                    <button type="button" id="showRegister">
-                        Registrarse
-                    </button>
-                </p>
-
-                <a href="/oauth2/authorization/google">
-                    <button type="button">Continuar con Google</button>
-                </a>
-            </div>
-
-            <div id="registerView" hidden>
-                <h2>Crear cuenta</h2>
-
-                <form id="registerForm">
-                    <label for="registerName">Nombre</label>
-                    <input id="registerName" type="text"
-                        required autocomplete="name">
-
-                    <label for="registerEmail">Correo electrónico</label>
-                    <input id="registerEmail" type="email"
-                        required autocomplete="email">
-
-                    <label for="registerPassword">Contraseña</label>
-                    <input id="registerPassword" type="password"
-                        minlength="8" required
-                        autocomplete="new-password">
-
-                    <button type="submit">Crear cuenta</button>
-                </form>
-
-                <p>¿Ya tienes cuenta?
-                    <button type="button" id="showLogin">
-                        Iniciar sesión
-                    </button>
-                </p>
-            </div>
-
-            <p id="authMessage" role="alert"></p>
-        </div>
-    </section>
-
-
-    <main id="appContent" hidden>
-
-    
-
-    <!-- ================= FORMULARIO ================= -->
-
-    <section class="panel">
-        <div>
-            <button type="button" onclick="cerrarSesion()">
-                Cerrar sesión
-            </button>
-        </div>
-        <div class="section-heading">
-
-            <div>
-                <h2>Tu plan personalizado</h2>
-                <p>Completa tus datos y descubre tus necesidades diarias.</p>
-            </div>
+        <div class="fc-section-title">
+            <span>PLAN PERSONALIZADO</span>
+            <h2>CALCULA TUS NECESIDADES</h2>
+            <p>Introduce tus datos para conocer tus resultados.</p>
         </div>
 
-        <form id="fitnessForm">
+        <div class="fc-panel">
 
-            <div class="form-grid">
-
-                <div class="form-field">
-                    <label for="peso"> Peso actual (kg)</label>
-
-                    <input
-                        type="number"
-                        id="peso"
-                        step="0.1"
-                        min="1"
-                        placeholder="Ej. 70.5"
-                        required>
-                </div>
-
-                <div class="form-field">
-                    <label for="altura"> Altura (cm)</label>
-
-                    <input
-                        type="number"
-                        id="altura"
-                        min="1"
-                        placeholder="Ej. 170"
-                        required>
-                </div>
-
-                <div class="form-field">
-                    <label for="edad"> Edad</label>
-
-                    <input
-                        type="number"
-                        id="edad"
-                        min="18"
-                        max="120"
-                        placeholder="Ej. 25"
-                        required>
-                </div>
-
-                <div class="form-field">
-                    <label for="sexo"> Sexo utilizado para la fórmula</label>
-
-                    <select id="sexo">
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                    </select>
-                </div>
-
-                <div class="form-field">
-                    <label for="actividad"> Actividad física</label>
-
-                    <select id="actividad">
-                        <option value="SEDENTARIO">Sedentario</option>
-                        <option value="LIGERO">Ligero</option>
-                        <option value="MODERADO">Moderado</option>
-                        <option value="ALTO">Alto</option>
-                        <option value="MUY_ALTO">Muy alto</option>
-                    </select>
-                </div>
-
-                <div class="form-field">
-                    <label for="objetivo"> Objetivo</label>
-
-                    <select id="objetivo">
-                        <option value="PERDER">Perder peso</option>
-                        <option value="MANTENER">Mantener peso</option>
-                        <option value="GANAR">Ganar masa</option>
-                    </select>
-                </div>
-
-            </div>
-
-            <div class="form-actions">
-                <button type="submit">
-                     CALCULAR MI PLAN
+            <div style="text-align:right">
+                <button type="button" onclick="cerrarSesion()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    CERRAR SESIÓN
                 </button>
             </div>
 
-        </form>
+            <h2><i class="fas fa-calculator"></i> Mi calculadora fitness</h2>
 
-    </section>
+            <form id="fitnessForm">
 
+                <div class="form-grid">
 
-    <!-- ================= RESULTADOS ================= -->
+                    <div class="form-field">
+                        <label for="peso">Peso actual (kg)</label>
+                        <input type="number" id="peso"
+                            step="0.1" min="1"
+                            placeholder="Ej. 70.5" required>
+                    </div>
 
-    <section id="resultados" class="dashboard hidden">
+                    <div class="form-field">
+                        <label for="altura">Altura (cm)</label>
+                        <input type="number" id="altura"
+                            min="1" placeholder="Ej. 170" required>
+                    </div>
 
-        <div class="card card-blue">
-            
-            <h3>Metabolismo basal</h3>
-            <p id="tmb">0</p>
-            <small>kcal / día</small>
+                    <div class="form-field">
+                        <label for="edad">Edad</label>
+                        <input type="number" id="edad"
+                            min="18" max="120"
+                            placeholder="Ej. 25" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="sexo">Sexo utilizado para la fórmula</label>
+                        <select id="sexo">
+                            <option value="M">Masculino</option>
+                            <option value="F">Femenino</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="actividad">Actividad física</label>
+                        <select id="actividad">
+                            <option value="SEDENTARIO">Sedentario</option>
+                            <option value="LIGERO">Ligero</option>
+                            <option value="MODERADO">Moderado</option>
+                            <option value="ALTO">Alto</option>
+                            <option value="MUY_ALTO">Muy alto</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="objetivo">Objetivo</label>
+                        <select id="objetivo">
+                            <option value="PERDER">Perder peso</option>
+                            <option value="MANTENER">Mantener peso</option>
+                            <option value="GANAR">Ganar masa</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">
+                        <i class="fas fa-fire"></i>
+                        CALCULAR MI PLAN
+                    </button>
+                </div>
+
+            </form>
+
         </div>
 
-        <div class="card card-green">
-            
-            <h3>Gasto energético diario</h3>
-            <p id="tdee">0</p>
-            <small>kcal / día</small>
-        </div>
+        <!-- RESULTADOS -->
+        <section id="resultados" class="dashboard fc-results hidden">
 
-        <div class="card card-orange">
-            
-            <h3>Calorías objetivo</h3>
-            <p id="calorias">0</p>
-            <small>kcal / día</small>
-        </div>
-
-        <div class="card card-purple">
-            
-            <h3>Índice de masa corporal</h3>
-            <p id="imc">0</p>
-            <small>IMC</small>
-        </div>
-
-    </section>
-
-
-    <!-- ================= MACRONUTRIENTES ================= -->
-
-    <section id="macros" class="panel hidden">
-
-        <div class="section-heading">
-            
-
-            <div>
-                <h2>Mis macronutrientes diarios</h2>
-                <p>Distribución estimada de tus nutrientes.</p>
+            <div class="card card-blue">
+                <h3>Metabolismo basal</h3>
+                <p id="tmb">0</p>
+                <small>kcal / día</small>
             </div>
-        </div>
 
-        <div class="macro-grid">
-
-            <div class="macro proteina">
-            
-                <h3>Proteínas</h3>
-                <p id="proteinas">0 g</p>
-                <small>Construcción y recuperación muscular</small>
+            <div class="card card-green">
+                <h3>Gasto energético diario</h3>
+                <p id="tdee">0</p>
+                <small>kcal / día</small>
             </div>
 
-            <div class="macro carbo">
-            
-                <h3>Carbohidratos</h3>
-                <p id="carbohidratos">0 g</p>
-                <small>Principal fuente de energía</small>
+            <div class="card card-orange">
+                <h3>Calorías objetivo</h3>
+                <p id="calorias">0</p>
+                <small>kcal / día</small>
             </div>
 
-            <div class="macro grasa">
-            
-                <h3>Grasas</h3>
-                <p id="grasas">0 g</p>
-                <small>Funciones hormonales y energéticas</small>
+            <div class="card card-purple">
+                <h3>Índice de masa corporal</h3>
+                <p id="imc">0</p>
+                <small>IMC</small>
             </div>
 
-        </div>
+        </section>
+
+        <!-- MACRONUTRIENTES -->
+        <section id="macros" class="fc-panel fc-macros hidden">
+
+            <h2><i class="fas fa-utensils"></i> Mis macronutrientes diarios</h2>
+            <p>Distribución estimada de tus nutrientes.</p>
+
+            <div class="macro-grid">
+
+                <div class="macro proteina">
+                    <i class="fas fa-drumstick-bite"></i>
+                    <h3>Proteínas</h3>
+                    <p id="proteinas">0 g</p>
+                    <small>Construcción y recuperación muscular</small>
+                </div>
+
+                <div class="macro carbo">
+                    <i class="fas fa-bread-slice"></i>
+                    <h3>Carbohidratos</h3>
+                    <p id="carbohidratos">0 g</p>
+                    <small>Principal fuente de energía</small>
+                </div>
+
+                <div class="macro grasa">
+                    <i class="fas fa-seedling"></i>
+                    <h3>Grasas</h3>
+                    <p id="grasas">0 g</p>
+                    <small>Funciones hormonales y energéticas</small>
+                </div>
+
+            </div>
+
+        </section>
 
     </section>
 
 </main>
 
-
-    <!-- ================= METODOLOGÍA ================= -->
-
-    <section class="formulas" id="formulas">
-
-        <div class="formulas-container">
-
-            <div class="formulas-header">
-
-                <span class="formulas-tag">
-                    FITCONTROL · METODOLOGÍA
-                </span>
-
-                <h2>La ciencia detrás de tus resultados</h2>
-
-                <p>
-                    Conoce las fórmulas utilizadas para estimar
-                    tus necesidades energéticas y nutricionales.
-                </p>
-
-            </div>
-
-
-            <!-- TMB -->
-
-            <article class="formula-card">
-
-                <div class="formula-number">01</div>
-
-                <div class="formula-content">
-
-                    <h3> Tasa Metabólica Basal (TMB)</h3>
-
-                    <p>
-                        Calcula la energía que tu organismo necesita
-                        en reposo para mantener sus funciones vitales.
-                    </p>
-
-                    <div class="formula-box">
-
-                        <strong>Hombres</strong>
-
-                        <p>
-                            TMB = (10 × peso) + (6.25 × altura)
-                            - (5 × edad) + 5
-                        </p>
-
-                        <strong>Mujeres</strong>
-
-                        <p>
-                            TMB = (10 × peso) + (6.25 × altura)
-                            - (5 × edad) - 161
-                        </p>
-
-                    </div>
-
-                    <span class="formula-source">
-                        Fuente: Mifflin-St Jeor (1990).
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <!-- TDEE -->
-
-            <article class="formula-card">
-
-                <div class="formula-number">02</div>
-
-                <div class="formula-content">
-
-                    <h3> Gasto Energético Diario (TDEE)</h3>
-
-                    <p>
-                        Estima las calorías que gastas diariamente
-                        según tu nivel de actividad física.
-                    </p>
-
-                    <div class="formula-box">
-                        <p>TDEE = TMB × Factor de actividad</p>
-                    </div>
-
-                    <div class="activity-list">
-
-                        <span>Sedentario <b>1.20</b></span>
-                        <span>Ligero <b>1.375</b></span>
-                        <span>Moderado <b>1.55</b></span>
-                        <span>Alto <b>1.725</b></span>
-                        <span>Muy alto <b>1.90</b></span>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- CALORÍAS -->
-
-            <article class="formula-card">
-
-                <div class="formula-number">03</div>
-
-                <div class="formula-content">
-
-                    <h3> Calorías según tu objetivo</h3>
-
-                    <p>
-                        Ajustamos el gasto energético de acuerdo
-                        con el objetivo que hayas seleccionado.
-                    </p>
-
-                    <div class="goal-list">
-
-                        <div>
-                            <span>Perder peso</span>
-                            <strong>TDEE × 0.85</strong>
-                        </div>
-
-                        <div>
-                            <span>Mantener peso</span>
-                            <strong>TDEE × 1.00</strong>
-                        </div>
-
-                        <div>
-                            <span>Ganar peso</span>
-                            <strong>TDEE × 1.10</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- PROTEÍNAS -->
-
-            <article class="formula-card">
-
-                <div class="formula-number">04</div>
-
-                <div class="formula-content">
-
-                    <h3> Proteínas</h3>
-
-                    <p>
-                        Estimamos la cantidad diaria de proteínas
-                        según el peso corporal.
-                    </p>
-
-                    <div class="formula-box">
-
-                        <p>Proteínas = Peso × 1.8 g</p>
-
-                        <small>
-                            4 kcal por cada gramo de proteína.
-                        </small>
-
-                    </div>
-
-                    <span class="formula-source">
-                        Referencia: ISSN (2017).
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <!-- GRASAS -->
-
-            <article class="formula-card">
-
-                <div class="formula-number">05</div>
-
-                <div class="formula-content">
-
-                    <h3> Grasas</h3>
-
-                    <p>
-                        Calculamos una cantidad estimada de grasas
-                        en función del peso corporal.
-                    </p>
-
-                    <div class="formula-box">
-
-                        <p>Grasas = Peso × 0.8 g</p>
-
-                        <small>
-                            9 kcal por cada gramo de grasa.
-                        </small>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <!-- CARBOHIDRATOS -->
-
-            <article class="formula-card">
-
-                <div class="formula-number">06</div>
-
-                <div class="formula-content">
-
-                    <h3> Carbohidratos</h3>
-
-                    <p>
-                        Calculamos los carbohidratos utilizando
-                        las calorías restantes después de proteínas
-                        y grasas.
-                    </p>
-
-                    <div class="formula-box">
-
-                        <p>
-                            Carbohidratos =
-                            (Calorías - (Proteínas × 4)
-                            - (Grasas × 9)) / 4
-                        </p>
-
-                        <small>
-                            4 kcal por cada gramo de carbohidrato.
-                        </small>
-
-                    </div>
-
-                    <span class="formula-source">
-                        Referencia: factores generales de Atwater.
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <!-- IMC -->
-
-            <article class="formula-card">
-
-                <div class="formula-number">07</div>
-
-                <div class="formula-content">
-
-                    <h3> Índice de Masa Corporal (IMC)</h3>
-
-                    <p>
-                        Relaciona el peso corporal con la altura
-                        para obtener un indicador antropométrico.
-                    </p>
-
-                    <div class="formula-box">
-
-                        <p>
-                            IMC = Peso / (Altura en metros)²
-                        </p>
-
-                    </div>
-
-                    <span class="formula-source">
-                        Fuente: Organización Mundial de la Salud (OMS).
-                    </span>
-
-                </div>
-
-            </article>
-
+<!-- INFORMACIÓN -->
+<section class="fc-section">
+
+    <div class="fc-section-title">
+        <span>FITCONTROL</span>
+        <h2>ENTRENA CON INTELIGENCIA</h2>
+        <p>Conoce los pilares para alcanzar tus objetivos.</p>
+    </div>
+
+    <div class="fc-info-grid">
+
+        <article class="fc-info-card">
+            <i class="fas fa-dumbbell"></i>
+            <h3>Entrenamiento</h3>
+            <p>Construye hábitos y trabaja constantemente por tus metas.</p>
+        </article>
+
+        <article class="fc-info-card">
+            <i class="fas fa-apple-whole"></i>
+            <h3>Nutrición</h3>
+            <p>Comprende tus necesidades energéticas y nutricionales.</p>
+        </article>
+
+        <article class="fc-info-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>Progreso</h3>
+            <p>Utiliza tus resultados para orientar tus decisiones.</p>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- METODOLOGÍA -->
+<section class="formulas" id="metodologia">
+
+    <div class="formulas-container">
+
+        <div class="formulas-header">
+            <span class="formulas-tag">FITCONTROL · METODOLOGÍA</span>
+            <h2>La ciencia detrás de tus resultados</h2>
+            <p>Conoce las fórmulas utilizadas para estimar tus necesidades energéticas y nutricionales.</p>
         </div>
 
-    </section>
-
-
-    <!-- ================= CONTROL DE PESO ================= -->
-<!--
-    <section class="panel weight-panel">
-
-        <div class="section-heading">
-
-            <div>
-                <h2>Mi progreso de peso</h2>
-                <p>Registra tu evolución y observa tus cambios.</p>
-            </div>
-
-        </div>
-
-        <form id="pesoForm">
-
-            <div class="weight-form">
-
-                <div class="form-field">
-                    <label for="nuevoPeso">
-                         Registrar peso (kg)
-                    </label>
-
-                    <input
-                        type="number"
-                        id="nuevoPeso"
-                        step="0.1"
-                        min="1"
-                        placeholder="Ej. 70.5"
-                        required>
+        <article class="formula-card">
+            <div class="formula-number">01</div>
+            <div class="formula-content">
+                <h3>Tasa Metabólica Basal (TMB)</h3>
+                <p>Calcula la energía que tu organismo necesita en reposo para mantener sus funciones vitales.</p>
+                <div class="formula-box">
+                    <strong>Hombres</strong>
+                    <p>TMB = (10 × peso) + (6.25 × altura) - (5 × edad) + 5</p>
+                    <strong>Mujeres</strong>
+                    <p>TMB = (10 × peso) + (6.25 × altura) - (5 × edad) - 161</p>
                 </div>
-
-                <button type="submit">
-                    + GUARDAR PESO
-                </button>
-
+                <span class="formula-source">Fuente: Mifflin-St Jeor (1990).</span>
             </div>
+        </article>
 
-        </form>
-
-        <div class="chart-container">
-            <canvas id="graficoPeso"></canvas>
-        </div>
-
-    </section>
--->
-
-    <!-- ================= REFERENCIAS ================= -->
-
-    <section class="panel references">
-
-        <div class="section-heading">
-            
-
-            <div>
-                <h2>Referencias científicas</h2>
-                <p>Fuentes utilizadas como referencia metodológica.</p>
+        <article class="formula-card">
+            <div class="formula-number">02</div>
+            <div class="formula-content">
+                <h3>Gasto Energético Diario (TDEE)</h3>
+                <p>Estima las calorías que gastas diariamente según tu nivel de actividad física.</p>
+                <div class="formula-box">
+                    <p>TDEE = TMB × Factor de actividad</p>
+                </div>
+                <div class="activity-list">
+                    <span>Sedentario <b>1.20</b></span>
+                    <span>Ligero <b>1.375</b></span>
+                    <span>Moderado <b>1.55</b></span>
+                    <span>Alto <b>1.725</b></span>
+                    <span>Muy alto <b>1.90</b></span>
+                </div>
             </div>
-        </div>
+        </article>
+
+        <article class="formula-card">
+            <div class="formula-number">03</div>
+            <div class="formula-content">
+                <h3>Calorías según tu objetivo</h3>
+                <p>Ajustamos el gasto energético de acuerdo con el objetivo que hayas seleccionado.</p>
+                <div class="goal-list">
+                    <div><span>Perder peso</span><strong>TDEE × 0.85</strong></div>
+                    <div><span>Mantener peso</span><strong>TDEE × 1.00</strong></div>
+                    <div><span>Ganar peso</span><strong>TDEE × 1.10</strong></div>
+                </div>
+            </div>
+        </article>
+
+        <article class="formula-card">
+            <div class="formula-number">04</div>
+            <div class="formula-content">
+                <h3>Proteínas</h3>
+                <p>Estimamos la cantidad diaria de proteínas según el peso corporal.</p>
+                <div class="formula-box">
+                    <p>Proteínas = Peso × 1.8 g</p>
+                    <small>4 kcal por cada gramo de proteína.</small>
+                </div>
+                <span class="formula-source">Referencia: ISSN (2017).</span>
+            </div>
+        </article>
+
+        <article class="formula-card">
+            <div class="formula-number">05</div>
+            <div class="formula-content">
+                <h3>Grasas</h3>
+                <p>Calculamos una cantidad estimada de grasas en función del peso corporal.</p>
+                <div class="formula-box">
+                    <p>Grasas = Peso × 0.8 g</p>
+                    <small>9 kcal por cada gramo de grasa.</small>
+                </div>
+            </div>
+        </article>
+
+        <article class="formula-card">
+            <div class="formula-number">06</div>
+            <div class="formula-content">
+                <h3>Carbohidratos</h3>
+                <p>Calculamos los carbohidratos utilizando las calorías restantes después de proteínas y grasas.</p>
+                <div class="formula-box">
+                    <p>Carbohidratos = (Calorías - (Proteínas × 4) - (Grasas × 9)) / 4</p>
+                    <small>4 kcal por cada gramo de carbohidrato.</small>
+                </div>
+                <span class="formula-source">Referencia: factores generales de Atwater.</span>
+            </div>
+        </article>
+
+        <article class="formula-card">
+            <div class="formula-number">07</div>
+            <div class="formula-content">
+                <h3>Índice de Masa Corporal (IMC)</h3>
+                <p>Relaciona el peso corporal con la altura para obtener un indicador antropométrico.</p>
+                <div class="formula-box">
+                    <p>IMC = Peso / (Altura en metros)²</p>
+                </div>
+                <span class="formula-source">Fuente: Organización Mundial de la Salud (OMS).</span>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- REFERENCIAS -->
+<section class="fc-section">
+    <div class="fc-panel references">
+        <h2><i class="fas fa-book"></i> Referencias científicas</h2>
+        <p>Fuentes utilizadas como referencia metodológica.</p>
 
         <ul>
-
             <li>
                 Mifflin et al. (1990).
-
-                <a href="https://doi.org/10.1093/ajcn/51.2.241"
-                   target="_blank" rel="noopener">
+                <a href="https://doi.org/10.1093/ajcn/51.2.241" target="_blank" rel="noopener">
                     A new predictive equation for resting energy expenditure.
                 </a>
             </li>
-
             <li>
                 Jäger et al. (2017).
-
-                <a href="https://doi.org/10.1186/s12970-017-0177-8"
-                   target="_blank" rel="noopener">
+                <a href="https://doi.org/10.1186/s12970-017-0177-8" target="_blank" rel="noopener">
                     ISSN Position Stand: Protein and Exercise.
                 </a>
             </li>
-
             <li>
                 Organización Mundial de la Salud.
-
-                <a href="https://www.who.int/"
-                   target="_blank" rel="noopener">
+                <a href="https://www.who.int/" target="_blank" rel="noopener">
                     World Health Organization.
                 </a>
             </li>
-
             <li>
                 USDA.
-
-                <a href="https://www.nal.usda.gov/"
-                   target="_blank" rel="noopener">
+                <a href="https://www.nal.usda.gov/" target="_blank" rel="noopener">
                     National Agricultural Library.
                 </a>
             </li>
-
         </ul>
+    </div>
+</section>
 
-    </section>
+<!-- PIE DE PÁGINA -->
+<footer class="fc-footer">
+    <h2>FIT<span>CONTROL</span></h2>
+    <p>Entrena · Nutre · Logra tus metas</p>
+    <small>VIVIFIT © 2026 · Cálculos nutricionales estimados.</small>
+</footer>
 
-
-    <!-- ================= PIE DE PÁGINA ================= -->
-
-    <footer class="site-footer">
-
-        <h2>FIT<span>CONTROL</span></h2>
-
-        <p>
-            Entrena • Nutre • Logra tus metas
-        </p>
-
-        <small>
-            VIVIFIT © 2026 · Cálculos nutricionales estimados.
-        </small>
-
-    </footer>
-
-</div>
-
-<!-- JavaScript original -->
+<!-- TU JAVASCRIPT ORIGINAL -->
 <script src="js/app.js"></script>
 
 </body>
