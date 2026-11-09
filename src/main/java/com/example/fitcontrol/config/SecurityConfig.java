@@ -61,6 +61,7 @@ public class SecurityConfig {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
                     "/",
+                    "/index",
                     "/index.html",
                     "/api/auth/registro",
                     "/api/auth/csrf",
@@ -86,12 +87,12 @@ public class SecurityConfig {
 
             .formLogin(form -> form
                 .loginProcessingUrl("/api/auth/login")
+                .loginPage("/")
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .successHandler((request, response, authentication) -> {
                     response.setStatus(200);
                     response.setContentType("application/json");
-                    response.setCharacterEncoding("UTF-8");
                     response.getWriter().write(
                         "{\"mensaje\":\"Inicio de sesión correcto\"}"
                     );
@@ -99,7 +100,6 @@ public class SecurityConfig {
                 .failureHandler((request, response, exception) -> {
                     response.setStatus(401);
                     response.setContentType("application/json");
-                    response.setCharacterEncoding("UTF-8");
                     response.getWriter().write(
                         "{\"error\":\"Correo o contraseña incorrectos\"}"
                     );
