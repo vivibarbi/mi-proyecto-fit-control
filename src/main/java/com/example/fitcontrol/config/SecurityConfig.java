@@ -115,8 +115,10 @@ public class SecurityConfig {
                 .userInfoEndpoint(userInfo ->
                     userInfo.oidcUserService(googleOidcUserService)
                 )
-                .defaultSuccessUrl("/dashboard.html", true)
-)
+                .successHandler((request, response, authentication) -> {
+                    response.sendRedirect("/dashboard.html");
+                })
+            )
 
             .logout(logout -> logout
                 .logoutUrl("/api/auth/logout")

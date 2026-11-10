@@ -57,30 +57,42 @@ public class AuthController {
         );
     }
 
-    @GetMapping("/me")
-    public ResponseEntity<?> obtenerUsuario(Authentication authentication) {
+   
+@GetMapping("/me")
+public ResponseEntity<?> obtenerUsuario(Authentication authentication) {
 
-        if (authentication == null ||
+    if (authentication == null ||
             !authentication.isAuthenticated() ||
-            "anonymousUser".equals(authentication.getPrincipal())) {
+            authentication.getPrincipal().equals("anonymousUser")) {
 
-            return ResponseEntity.status(401).build();
-        }
-
-        Usuario usuario = usuarioRepository.findByEmail(authentication.getName())
-                .orElseThrow(() ->
-                        new UsernameNotFoundException("Usuario no encontrado"));
-
-        String nombre = usuario.getNombre();
-
-        if (nombre == null || nombre.isBlank()) {
-            nombre = usuario.getEmail();
-        }
-
-        return ResponseEntity.ok(Map.of(
-                "nombre", nombre,
-                "email", usuario.getEmail()
-        ));
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("error", "Sesión no autenticada"));
     }
+
+    String email = authentication.getName().trim().toLowerCase();
+
+    Usuario usuario = usuarioRepository.findByEmail(email)
+            .orElse(null);
+
+    if (usuario == null) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Map.of(
+                    "error", "Usuario autenticado, pero no encontrado en la base de datos",
+                    "email", email
+                ));
+    }
+
+    String nombre = usuario.getNombre();
+
+    if (nombre == null || nombre.isBlank()) {
+        nombre = usuario.getEmail();
+    }
+
+    return ResponseEntity.ok(Map.of(
+            "nombre", nombre,
+            "email", usuario.getEmail()
+    ));
+    }
+ 
 }
 
