@@ -7,7 +7,9 @@ import com.example.fitcontrol.service.UsuarioService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
@@ -57,19 +59,49 @@ public class AuthController {
         );
     }
 
-   
+    
 @GetMapping("/me")
 public ResponseEntity<?> obtenerUsuario(Authentication authentication) {
 
     if (authentication == null ||
             !authentication.isAuthenticated() ||
-            authentication.getPrincipal().equals("anonymousUser")) {
+            "anonymousUser".equals(authentication.getPrincipal())) {
 
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                 .body(Map.of("error", "Sesión no autenticada"));
     }
 
-    String email = authentication.getName().trim().toLowerCase();
+    String email;
+    Object principal = authentication.getPrincipal();
+
+    // LOGIN CON GOOGLE
+    if (principal instanceof OidcUser) {
+
+        OidcUser googleUser = (OidcUser) principal;
+
+        email = googleUser.getEmail();
+
+    }
+    // LOGIN TRADICIONAL
+    else if (principal instanceof UserDetails) {
+
+        UserDetails usuario = (UserDetails) principal;
+
+        email = usuario.getUsername();
+
+    }
+    else {
+
+        email = authentication.getName();
+
+    }
+
+    if (email == null || email.isBlank()) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("error", "No se pudo obtener el correo"));
+    }
+
+    email = email.trim().toLowerCase();
 
     Usuario usuario = usuarioRepository.findByEmail(email)
             .orElse(null);
@@ -77,7 +109,7 @@ public ResponseEntity<?> obtenerUsuario(Authentication authentication) {
     if (usuario == null) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(Map.of(
-                    "error", "Usuario autenticado, pero no encontrado en la base de datos",
+                    "error", "Usuario no encontrado",
                     "email", email
                 ));
     }
@@ -92,7 +124,8 @@ public ResponseEntity<?> obtenerUsuario(Authentication authentication) {
             "nombre", nombre,
             "email", usuario.getEmail()
     ));
-    }
- 
+}
+
+
 }
 
