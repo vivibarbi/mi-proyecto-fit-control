@@ -63,6 +63,7 @@ public class SecurityConfig {
                     "/",
                     "/index",
                     "/index.html",
+                    "/api/fitness/**",
                     "/api/auth/registro",
                     "/api/auth/csrf",
                     "/api/auth/me",
@@ -73,6 +74,9 @@ public class SecurityConfig {
                     "/oauth2/**",
                     "/login/oauth2/**"
                 ).permitAll()
+
+                .requestMatchers("/dashboard.html").authenticated()
+
                 .anyRequest().authenticated()
             )
             
@@ -111,7 +115,7 @@ public class SecurityConfig {
                 .userInfoEndpoint(userInfo ->
                     userInfo.oidcUserService(googleOidcUserService)
                 )
-                .defaultSuccessUrl("/", true)
+                .defaultSuccessUrl("/dashboard.html", true)
 )
 
             .logout(logout -> logout

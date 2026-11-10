@@ -1,4 +1,3 @@
-
 package com.example.fitcontrol.service;
 
 import com.example.fitcontrol.model.Usuario;

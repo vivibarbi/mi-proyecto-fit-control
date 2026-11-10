@@ -43,7 +43,7 @@
     <div class="fc-links">
         <a href="#inicio">INICIO</a>
         <!--<a href="#authSection">MI CUENTA</a>-->
-        <a href="#calculadora" id="appContentnav" hidden>CALCULADORA</a>
+        <a href="#calculadora">CALCULADORA</a>
         <a href="#metodologia">FÓRMULAS</a>
         <a href="#contacto">CONTACTO</a>
         
@@ -62,13 +62,11 @@
         <span class="fc-tag">TU CAMBIO COMIENZA HOY</span>
 
         <h1>
-            SUPERA TUS<br>
-            <span>LÍMITES</span>
+            SUPERA TUS<br><span>LÍMITES</span>
         </h1>
 
         <p>
-            Conoce tu cuerpo, calcula tus necesidades
-            nutricionales y construye una mejor versión de ti.
+            Conoce tu cuerpo, calcula tus necesidades nutricionales y construye una mejor versión de ti.
         </p>
 
         <a href="#authSection" class="fc-button">
@@ -100,12 +98,9 @@
             <form id="loginForm">
 
                 <label for="loginEmail">Correo electrónico</label>
-                <input id="loginEmail" type="email"
-                    required autocomplete="email">
-
+                <input id="loginEmail" type="email" required autocomplete="email">
                 <label for="loginPassword">Contraseña</label>
-                <input id="loginPassword" type="password"
-                    required autocomplete="current-password">
+                <input id="loginPassword" type="password" required autocomplete="current-password">
 
                 <button type="submit">INICIAR SESIÓN</button>
 
@@ -133,16 +128,12 @@
             <form id="registerForm">
 
                 <label for="registerName">Nombre</label>
-                <input id="registerName" type="text"
-                    required autocomplete="name">
+                <input id="registerName" type="text" required autocomplete="name">
 
                 <label for="registerEmail">Correo electrónico</label>
-                <input id="registerEmail" type="email"
-                    required autocomplete="email">
-
+                <input id="registerEmail" type="email" required autocomplete="email">
                 <label for="registerPassword">Contraseña</label>
-                <input id="registerPassword" type="password"
-                    minlength="8" required autocomplete="new-password">
+                <input id="registerPassword" type="password" minlength="8" required autocomplete="new-password">
 
                 <button type="submit">CREAR CUENTA</button>
 
@@ -163,24 +154,24 @@
 
 <!-- CONTENIDO DE LA APLICACIÓN calcular datos-->
 
-<main id="appContent" hidden>
+<main id="appContent" >
 
     <section class="fc-section" id="calculadora">
 
         <div class="fc-section-title">
-            <span>PLAN PERSONALIZADO</span>
+            <span>PLAN PERSONALIZADO :)</span>
             <h2>CALCULA TUS NECESIDADES</h2>
             <p>Introduce tus datos para conocer tus resultados.</p>
         </div>
 
         <div class="fc-panel">
 
-            <div style="text-align:right">
+            <!--<div style="text-align:right">
                 <button type="button" onclick="cerrarSesion()">
                     <i class="fas fa-sign-out-alt"></i>
                     CERRAR SESIÓN
                 </button>
-            </div>
+            </div>-->
 
             <h2><i class="fas fa-calculator"></i> Mi calculadora fitness</h2>
 
@@ -190,22 +181,17 @@
 
                     <div class="form-field">
                         <label for="peso">Peso actual (kg)</label>
-                        <input type="number" id="peso"
-                            step="0.1" min="1"
-                            placeholder="Ej. 70.5" required>
+                        <input type="number" id="peso" step="0.1" min="1" placeholder="Ej. 70.5" required>
                     </div>
 
                     <div class="form-field">
                         <label for="altura">Altura (cm)</label>
-                        <input type="number" id="altura"
-                            min="1" placeholder="Ej. 170" required>
+                        <input type="number" id="altura" min="1" placeholder="Ej. 170" required>
                     </div>
 
                     <div class="form-field">
                         <label for="edad">Edad</label>
-                        <input type="number" id="edad"
-                            min="18" max="120"
-                            placeholder="Ej. 25" required>
+                        <input type="number" id="edad" min="18" max="120" placeholder="Ej. 25" required>
                     </div>
 
                     <div class="form-field">

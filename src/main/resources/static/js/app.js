@@ -27,13 +27,13 @@ function encabezadosCsrf() {
 }
 
 function mostrarAplicacion() {
-    authSection.hidden = true;
+    authSection.hidden = false;
     appContent.hidden = false;
 }
 
 function mostrarAcceso() {
     authSection.hidden = false;
-    appContent.hidden = true;
+    appContent.hidden = false;
 }
 
 function mostrarMensaje(mensaje) {
@@ -159,8 +159,10 @@ document.getElementById("loginForm")
             }
 
             await actualizarCsrf();
-            mostrarMensaje("");
-            mostrarAplicacion();
+
+            mostrarMensaje("Inicio de sesión correcto :)");
+
+            window.location.href = "/dashboard.html";
 
         } catch (error) {
             mostrarMensaje(error.message);
@@ -191,6 +193,9 @@ async function cerrarSesion() {
 
 // Calculadora DE FITCONTROL
 
+
+// CALCULADORA FITNESS - ACCESO PÚBLICO
+
 const form = document.getElementById("fitnessForm");
 
 form.addEventListener("submit", async function(e) {
@@ -204,22 +209,58 @@ form.addEventListener("submit", async function(e) {
     const objetivo = document.getElementById("objetivo").value;
 
     const params = new URLSearchParams({
-        peso, altura, edad, sexo, actividad, objetivo
+        peso,
+        altura,
+        edad,
+        sexo,
+        actividad,
+        objetivo
     });
 
     try {
         const respuesta = await fetch(
-            `/api/fitness/calcular?${params}`
+            `/api/fitness/calcular?${params.toString()}`,
+            {
+                method: "GET",
+                headers: {
+                    "Accept": "application/json"
+                },
+                credentials: "same-origin"
+            }
         );
 
-        const data = await respuesta.json();
+        // Leer primero como texto para evitar errores
+        // cuando el servidor devuelve una respuesta vacía.
+        const texto = await respuesta.text();
 
-        if (!respuesta.ok) {
-            throw new Error(data.message || "No se pudo calcular");
+        if (!texto.trim()) {
+            throw new Error(
+                `El servidor devolvió una respuesta vacía. Código HTTP: ${respuesta.status}. Revisa el controlador de fitness.`
+            );
         }
 
+        let data;
+
+        try {
+            data = JSON.parse(texto);
+        } catch {
+            console.error("Respuesta recibida del servidor:", texto);
+
+            throw new Error(
+                "El servidor no devolvió un JSON válido. Revisa el controlador."
+            );
+        }
+
+        if (!respuesta.ok) {
+            throw new Error(
+                data.message || data.error || "No se pudo calcular el plan."
+            );
+        }
+
+        // Mostrar resultados
         document.getElementById("tmb").textContent = data.tmb;
         document.getElementById("tdee").textContent = data.tdee;
+
         document.getElementById("calorias").textContent =
             data.caloriasObjetivo;
 
@@ -241,6 +282,7 @@ form.addEventListener("submit", async function(e) {
             .classList.remove("hidden");
 
     } catch(error) {
+        console.error("Error al calcular:", error);
         alert(error.message);
     }
 });

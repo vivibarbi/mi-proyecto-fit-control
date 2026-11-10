@@ -6,7 +6,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/fitness")
-@CrossOrigin
 public class FitnessController {
 //Este controlador recibirá los datos enviados desde el frontend.
 

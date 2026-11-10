@@ -21,6 +21,7 @@ public class FitnessService {
         }
 
         double tmb;
+        
     /* formulas para calcular peso */
     
         if (sexo.equalsIgnoreCase("M")) {

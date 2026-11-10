@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090909">
+    <meta name="description" content="FITCONTROL - Tu espacio personal">
+
+    <title>FITCONTROL | Mi cuenta</title>
+
+    <!-- Mismos estilos del index -->
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="fc-nav">
+
+        <a href="/dashboard.html" class="fc-logo">
+            FIT<span>CONTROL</span>
+        </a>
+
+        <div class="fc-links">
+            <a href="#inicio">INICIO</a>
+            <a href="#mi-cuenta">MI CUENTA</a>
+            <a href="#servicios">SERVICIOS</a>
+            <a href="#contacto">CONTACTO</a>
+
+            <a href="#" onclick="cerrarSesion(); return false;">
+                <i class="fas fa-sign-out-alt"></i>
+                CERRAR SESIÓN
+            </a>
+        </div>
+
+    </nav>
+
+
+    <!-- PORTADA -->
+    <header class="fc-hero" id="inicio">
+
+        <img src="/images/fitness-hero.jpg"
+             alt="Entrenamiento profesional en gimnasio">
+
+        <div class="fc-hero-content">
+
+            <span class="fc-tag">TU PROGRESO COMIENZA AQUÍ</span>
+
+            <h1>
+                BIENVENIDO A<br>
+                <span>FITCONTROL</span>
+            </h1>
+
+            <p>
+                Hola, <strong id="nombreUsuario">Usuario</strong>.
+                Nos alegra tenerte de vuelta.
+                Sigue trabajando para alcanzar tus objetivos.
+            </p>
+
+            <a href="#mi-cuenta" class="fc-button">
+                MI ESPACIO PERSONAL
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- BIENVENIDA -->
+    <main>
+
+        <section class="fc-section" id="mi-cuenta">
+
+            <div class="fc-section-title">
+
+                <span>MI CUENTA PERSONAL</span>
+
+                <h2>
+                    BIENVENIDO A FITCONTROL,
+                    <span id="nombreBienvenida">USUARIO</span>
+                </h2>
+
+                <p>
+                    Este es tu espacio personal. Aquí podrás gestionar
+                    tu actividad y consultar tus avances.
+                </p>
+
+            </div>
+
+            <div class="fc-panel">
+
+                <h2>
+                    <i class="fas fa-user-circle"></i>
+                    Mi perfil
+                </h2>
+
+                <p>
+                    <strong>Nombre:</strong>
+                    <span id="perfilNombre">Cargando...</span>
+                </p>
+
+                <p>
+                    <strong>Correo electrónico:</strong>
+                    <span id="perfilEmail">Cargando...</span>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICIOS -->
+        <section class="fc-section" id="servicios">
+
+            <div class="fc-section-title">
+
+                <span>FITCONTROL</span>
+
+                <h2>CONTINÚA TU PROGRESO</h2>
+
+                <p>
+                    Trabaja en tus objetivos y construye hábitos saludables.
+                </p>
+
+            </div>
+
+            <div class="fc-info-grid">
+
+                <article class="fc-info-card">
+
+                    <i class="fas fa-dumbbell"></i>
+
+                    <h3>Entrenamiento</h3>
+
+                    <p>
+                        Organiza tus entrenamientos y trabaja
+                        constantemente por tus metas.
+                    </p>
+
+                </article>
+
+
+                <article class="fc-info-card">
+
+                    <i class="fas fa-apple-whole"></i>
+
+                    <h3>Nutrición</h3>
+
+                    <p>
+                        Aprende a mejorar tus hábitos alimenticios
+                        y cuidar tu nutrición.
+                    </p>
+
+                </article>
+
+
+                <article class="fc-info-card">
+
+                    <i class="fas fa-chart-line"></i>
+
+                    <h3>Mi progreso</h3>
+
+                    <p>
+                        Próximamente podrás consultar tu evolución
+                        y tus resultados personales.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <section id="contacto">
+
+        <footer class="fc-footer">
+
+            <h2>FIT<span>CONTROL</span></h2>
+
+            <p>Entrena · Nutre · Logra tus metas</p>
+
+            <small>
+                VIVIFIT © 2026 · Tu salud, tu progreso, tu control.
+            </small>
+
+        </footer>
+
+    </section>
+
+
+    <script src="/js/dashboard.js"></script>
+
+</body>
+</html>

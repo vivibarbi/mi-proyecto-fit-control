@@ -1,11 +1,13 @@
 package com.example.fitcontrol.controller;
 
 import com.example.fitcontrol.model.Usuario;
+import com.example.fitcontrol.repository.UsuarioRepository;
 import com.example.fitcontrol.service.UsuarioService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,9 +18,11 @@ import java.util.Map;
 public class AuthController {
 
     private final UsuarioService usuarioService;
+    private final UsuarioRepository usuarioRepository;
 
-    public AuthController(UsuarioService usuarioService) {
+    public AuthController(UsuarioService usuarioService, UsuarioRepository usuarioRepository) {
         this.usuarioService = usuarioService;
+        this.usuarioRepository = usuarioRepository;
     }
 
     @PostMapping("/registro")
@@ -53,19 +57,30 @@ public class AuthController {
         );
     }
 
-@GetMapping("/me")
-public ResponseEntity<?> usuarioActual(Authentication auth) {
+    @GetMapping("/me")
+    public ResponseEntity<?> obtenerUsuario(Authentication authentication) {
 
-    if (auth == null
-            || !auth.isAuthenticated()
-            || auth instanceof org.springframework.security.authentication.AnonymousAuthenticationToken) {
+        if (authentication == null ||
+            !authentication.isAuthenticated() ||
+            "anonymousUser".equals(authentication.getPrincipal())) {
 
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-            .body(Map.of("error", "No has iniciado sesión"));
+            return ResponseEntity.status(401).build();
+        }
+
+        Usuario usuario = usuarioRepository.findByEmail(authentication.getName())
+                .orElseThrow(() ->
+                        new UsernameNotFoundException("Usuario no encontrado"));
+
+        String nombre = usuario.getNombre();
+
+        if (nombre == null || nombre.isBlank()) {
+            nombre = usuario.getEmail();
+        }
+
+        return ResponseEntity.ok(Map.of(
+                "nombre", nombre,
+                "email", usuario.getEmail()
+        ));
     }
+}
 
-    return ResponseEntity.ok(
-        Map.of("email", auth.getName())
-    );
-}
-}
