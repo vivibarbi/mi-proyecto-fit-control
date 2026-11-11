@@ -75,6 +75,7 @@ public class SecurityConfig {
                     "/login/oauth2/**"
                 ).permitAll()
 
+                .requestMatchers("/api/perfil/**").authenticated()
                 .requestMatchers("/dashboard.html").authenticated()
 
                 .anyRequest().authenticated()
