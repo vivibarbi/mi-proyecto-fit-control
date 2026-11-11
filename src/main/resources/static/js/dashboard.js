@@ -274,6 +274,94 @@ async function configurarFormularioPerfil() {
     });
 }
 
+//editar perfil
+function configurarEdicionPerfil() {
+    const btnEditar = document.getElementById("btnEditarPerfil");
+    const btnCancelar = document.getElementById("btnCancelarEdicion");
+    const formulario = document.getElementById("editarPerfilForm");
+    const visualizacion = document.getElementById("perfilVisualizacion");
+
+    if (!btnEditar || !formulario || !visualizacion) return;
+
+    btnEditar.addEventListener("click", () => {
+        document.getElementById("editarEdad").value =
+            document.getElementById("verEdad").textContent;
+
+        document.getElementById("editarPeso").value =
+            document.getElementById("verPeso").textContent;
+
+        document.getElementById("editarSexo").value =
+            document.getElementById("verSexo").textContent;
+
+        document.getElementById("editarAltura").value =
+            document.getElementById("verAltura").textContent;
+
+        document.getElementById("editarPais").value =
+            document.getElementById("verPais").textContent;
+
+        document.getElementById("editarPreferencia").value =
+            document.getElementById("verPreferencia").textContent;
+
+        visualizacion.hidden = true;
+        formulario.hidden = false;
+    });
+
+    btnCancelar.addEventListener("click", () => {
+        formulario.hidden = true;
+        visualizacion.hidden = false;
+    });
+
+    formulario.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const mensaje = document.getElementById("mensajeEditarPerfil");
+        mensaje.textContent = "Guardando cambios...";
+
+        try {
+            const csrf = await actualizarCsrf();
+
+            const datos = {
+                edad: Number(document.getElementById("editarEdad").value),
+                peso: Number(document.getElementById("editarPeso").value),
+                sexo: document.getElementById("editarSexo").value,
+                altura: Number(document.getElementById("editarAltura").value),
+                pais: document.getElementById("editarPais").value.trim(),
+                preferencia: document.getElementById("editarPreferencia").value
+            };
+            
+            const respuesta = await fetch("/api/perfil", {
+                method: "POST",
+                credentials: "same-origin",
+                headers: {
+                    "Content-Type": "application/json",
+                    [csrf.headerName]: csrf.token
+                },
+                body: JSON.stringify(datos)
+            });
+
+            if (respuesta.status === 401) {
+                window.location.href = "/index.html";
+                return;
+            }
+
+            if (!respuesta.ok) {
+                const error = await respuesta.json();
+                throw new Error(error.error || "No se pudieron guardar los cambios");
+            }
+
+            mensaje.textContent = "Información actualizada correctamente.";
+
+            formulario.hidden = true;
+            visualizacion.hidden = false;
+
+            await cargarPerfil();
+
+        } catch (error) {
+            mensaje.textContent = error.message;
+        }
+    });
+}
+
 
 //  INICIALIZAR DASHBOARD
 document.addEventListener("DOMContentLoaded", async () => {
@@ -292,4 +380,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Consultar información física
     await cargarPerfil();
 
+    // activar la edicion del perfil usuario
+    configurarEdicionPerfil();
 });

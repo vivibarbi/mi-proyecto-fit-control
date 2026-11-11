@@ -129,41 +129,32 @@
         <div class="fc-panel">
 
             <form id="perfilForm">
-
                 <div class="mb-3">
                     <label>Edad</label>
                     <input type="number" name="edad"
                         class="form-control" min="13" max="120"
                         required>
                 </div>
-
                 <div class="mb-3">
                     <label>Peso (kg)</label>
                     <input type="number" name="peso"
                         class="form-control" step="0.01"
                         min="1" required>
                 </div>
-
                 <div class="mb-3">
                     <label>Sexo</label>
                     <select name="sexo" class="form-select" required>
                         <option value="">Selecciona una opción</option>
                         <option value="Femenino">Femenino</option>
                         <option value="Masculino">Masculino</option>
-                        <option value="Otro">Otro</option>
-                        <option value="Prefiero no decirlo">
-                            Prefiero no decirlo
-                        </option>
                     </select>
                 </div>
-
                 <div class="mb-3">
                     <label>Altura (cm)</label>
                     <input type="number" name="altura"
                         class="form-control" step="0.01"
                         min="1" required>
                 </div>
-
                 <div class="mb-3">
                     <label>País</label>
                     <select name="pais" class="form-select" required>
@@ -183,7 +174,6 @@
                         <option value="Otro">Otro</option>
                     </select>
                 </div>
-
                 <div class="mb-3">
                     <label>Preferencia deportiva</label>
                     <select name="preferencia" class="form-select" required>
@@ -201,7 +191,6 @@
                 </button>
 
                 <p id="mensajePerfil"></p>
-
             </form>
 
         </div>
@@ -220,33 +209,69 @@
         <div class="fc-panel">
 
             <h2>
-                <i class="fas fa-user-circle"></i>
-                Mi información
+                <i class="fas fa-user-circle"></i>Mi información
             </h2>
 
-            <p><strong>Edad:</strong>
-                <span id="verEdad"></span> años
-            </p>
+            <div id="perfilVisualizacion">
+                <p><strong>Edad:</strong>
+                    <span id="verEdad"></span> años
+                </p>
+                <p><strong>Peso:</strong>
+                    <span id="verPeso"></span> kg
+                </p>
+                <p><strong>Sexo:</strong>
+                    <span id="verSexo"></span>
+                </p>
+                <p><strong>Altura:</strong>
+                    <span id="verAltura"></span> cm
+                </p>
+                <p><strong>País:</strong>
+                    <span id="verPais"></span>
+                </p>
+                <p><strong>Preferencia deportiva:</strong>
+                    <span id="verPreferencia"></span>
+                </p>
 
-            <p><strong>Peso:</strong>
-                <span id="verPeso"></span> kg
-            </p>
+                <button type="button" id="btnEditarPerfil">
+                Editar información</button>
+            </div>
 
-            <p><strong>Sexo:</strong>
-                <span id="verSexo"></span>
-            </p>
+        <form id="editarPerfilForm" hidden>
+            <label>Edad</label>
+            <input type="number" name="edad" id="editarEdad" required>
 
-            <p><strong>Altura:</strong>
-                <span id="verAltura"></span> cm
-            </p>
+            <label>Peso (kg)</label>
+            <input type="number" name="peso" id="editarPeso"
+                step="0.01" required>
 
-            <p><strong>País:</strong>
-                <span id="verPais"></span>
-            </p>
+            <label>Sexo</label>
+            <select name="sexo" id="editarSexo" required>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+            </select>
 
-            <p><strong>Preferencia deportiva:</strong>
-                <span id="verPreferencia"></span>
-            </p>
+            <label>Altura (cm)</label>
+            <input type="number" name="altura" id="editarAltura"
+                step="0.01" required>
+
+            <label>País</label>
+            <input type="text" name="pais" id="editarPais" required>
+
+            <label>Preferencia deportiva</label>
+            <select name="preferencia" id="editarPreferencia" required>
+                <option value="Musculación">Musculación</option>
+                <option value="Funcional">Funcional</option>
+                <option value="Powerlifting">Powerlifting</option>
+                <option value="Cardiovascular">Cardiovascular</option>
+            </select>
+
+            <p id="mensajeEditarPerfil"></p>
+
+            <button type="submit">Guardar cambios</button>
+            <button type="button" id="btnCancelarEdicion">
+                Cancelar
+            </button>
+        </form>
 
         </div>
 

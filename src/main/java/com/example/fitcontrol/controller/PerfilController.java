@@ -80,6 +80,7 @@ public class PerfilController {
 
     // GUARDAR INFORMACIÓN POR PRIMERA VEZ
     @PostMapping
+    @Transactional 
     public ResponseEntity<?> guardarPerfil(
             @RequestBody PerfilRequest datos,
             Authentication authentication) {
@@ -96,13 +97,14 @@ public class PerfilController {
         }
 
         // Evitar registros duplicados
-        if (perfilRepository.findByUsuarioId(usuario.getId()).isPresent()) {
+        /*if (perfilRepository.findByUsuarioId(usuario.getId()).isPresent()) {
             return ResponseEntity.badRequest()
                     .body(Map.of("mensaje", "Ya tienes un perfil registrado"));
-        }
+        }*/
 
         // Validaciones básicas
-        if (datos.edad() == null || datos.edad() < 13 ||
+        if (datos == null ||
+            datos.edad() == null || datos.edad() < 13 ||
             datos.edad() > 120 ||
             datos.peso() == null || datos.peso().signum() <= 0 ||
             datos.altura() == null || datos.altura().signum() <= 0 ||
@@ -114,7 +116,10 @@ public class PerfilController {
                     .body(Map.of("mensaje", "Completa correctamente todos los campos"));
         }
 
-        InformacionUsuario perfil = new InformacionUsuario();
+        //InformacionUsuario perfil = new InformacionUsuario();
+        InformacionUsuario perfil = perfilRepository
+            .findByUsuarioId(usuario.getId())
+            .orElseGet(InformacionUsuario::new);
 
         perfil.setUsuario(usuario);
         perfil.setEdad(datos.edad());
