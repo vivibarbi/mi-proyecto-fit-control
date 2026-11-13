@@ -76,6 +76,7 @@ public class SecurityConfig {
                 ).permitAll()
 
                 .requestMatchers("/api/perfil/**").authenticated()
+                .requestMatchers("/api/progreso/**").authenticated()
                 .requestMatchers("/dashboard.html").authenticated()
 
                 .anyRequest().authenticated()
