@@ -1186,3 +1186,52 @@ button:hover {
                 padding: 20px;
             }
         }
+
+
+/* progreso peso */
+        .progreso-container {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .progreso-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.08);
+            margin-bottom: 30px;
+        }
+
+        .progreso-card h2 {
+            margin-bottom: 20px;
+        }
+
+        .peso-input {
+            max-width: 350px;
+        }
+
+        .grafico-container {
+            position: relative;
+            height: 350px;
+            width: 100%;
+        }
+
+        .btn-volver {
+            margin-bottom: 25px;
+        }
+
+        #mensaje {
+            margin-top: 15px;
+        }
+
+        @media(max-width: 600px) {
+            .progreso-card {
+                padding: 18px;
+            }
+
+            .grafico-container {
+                height: 280px;
+            }
+        }
+    

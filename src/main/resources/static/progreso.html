@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FITCONTROL | Mi progreso</title>
+
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+        <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <link rel="icon" type="image/x-icon" href="images/icono.ico">
+</head>
+
+<body>
+
+     <!-- NAVEGACIÓN -->
+    <nav class="fc-nav">
+
+        <a href="/dashboard.html" class="fc-logo">
+            FIT<span>CONTROL</span>
+        </a>
+
+        <div class="fc-links">
+            <a href="/dashboard.html"> DASHBOARD </a>
+
+            <a href="#evolucionpeso"> EVOLUCION </a>
+            <a href="#historialpeso"> HISTORIAL </a>
+
+            <a href="#" onclick="cerrarSesion(); return false;">
+                <i class="fas fa-sign-out-alt"></i>
+                CERRAR SESIÓN
+            </a>
+        </div>
+
+    </nav>
+
+        <!-- PORTADA -->
+    <header class="fc-hero" id="inicio">
+
+        <img src="/images/fitness-hero.jpg"
+             alt="Entrenamiento profesional en gimnasio">
+
+        <div class="fc-hero-content">
+
+            <span class="fc-tag">TU PROGRESO COMIENZA AQUÍ</span>
+
+            <h1>
+                BIENVENIDO A<br>
+                <span>FITCONTROL</span>
+            </h1>
+
+            <p>
+                Hola, <strong id="nombreUsuario">Usuario</strong>.
+                Nos alegra tenerte de vuelta.
+                Sigue trabajando para alcanzar tus objetivos.
+            </p>
+
+            <a href="#progreso-container" class="fc-button">
+                MI CONTROL DE PESO 
+                <i class="fas fa-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </header>
+
+    <main class="progreso-container" id="progreso-container">
+
+        <!--<a href="/dashboard.html" class="btn btn-outline-secondary btn-volver">
+            <i class="fas fa-arrow-left"></i>
+            Volver al Dashboard
+        </a>
+    -->
+        <div class="fc-section-title">
+            <span>FITCONTROL</span>
+
+            <h1>MI PROGRESO</h1>
+
+            <p>
+                Registra tu peso diariamente y observa
+                cómo evoluciona tu condición física.
+            </p>
+        </div>
+
+
+        <!-- REGISTRAR PESO -->
+        <section class="progreso-card"  id="registroPeso">
+
+            <h2>
+                <i class="fas fa-weight"></i>
+                Registrar mi peso
+            </h2>
+            <p>
+                Fecha de registro:
+                <strong id="fechaActual"></strong>
+            </p>
+            <form id="pesoForm">
+
+                <div class="mb-3 peso-input">
+                    <label for="peso" class="form-label"> Peso actual (kg) </label>
+
+                    <input type="number" id="peso" class="form-control" min="0.1" max="1000" step="0.01" placeholder="Ejemplo: 70.50" required >
+                </div>
+
+                <button type="submit" class="fc-button" id="btnGuardar">
+                    <i class="fas fa-save"></i>
+                    GUARDAR PESO
+                </button>
+
+                <p id="mensaje"></p>
+
+            </form>
+
+        <p id="pesoRegistradoHoy" class="text-success mt-3" hidden>
+            ¡Ya registraste tu peso hoy! Podrás registrar nuevamente mañana.
+        </p>
+
+        </section>
+
+
+        <!-- GRAFICO -->
+        <section class="progreso-card" id="evolucionpeso">
+
+            <h2>
+                <i class="fas fa-chart-line"></i>
+                Evolución de mi peso
+            </h2>
+
+            <p>
+                Aquí podrás observar tus cambios de peso a lo largo del tiempo.
+            </p>
+
+            <div class="grafico-container">
+                <canvas id="graficoPeso"></canvas>
+            </div>
+
+            <p id="sinRegistros" class="text-muted mt-3" hidden>
+                Todavía no tienes registros de peso.
+            </p>
+
+        </section>
+
+
+        <!-- HISTORIAL -->
+
+        <section class="progreso-card" id="historialpeso">
+
+            <h2>
+                <i class="fas fa-history"></i>
+                Historial de registros
+            </h2>
+
+            <div class="table-responsive">
+
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Peso registrado</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tablaRegistros">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+        <!-- PIE DE PÁGINA -->
+    <section id="contacto">
+
+        <footer class="fc-footer">
+            <h2>FIT<span>CONTROL</span></h2>
+            <p> · Logra tus metas · </p>
+            <small>CONTACTO: viviana.kitty.nvtr@gmail.com © 2026</small>
+        </footer>
+
+    </section>
+
+    <script src="/js/progreso.js"></script>
+
+</body>
+</html>

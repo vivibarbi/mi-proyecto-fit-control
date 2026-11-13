@@ -12,7 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Map;
-
+/*
 @RestController
 @RequestMapping("/api/peso")
 public class PesoController {
@@ -73,3 +73,4 @@ public class PesoController {
             ));
     }
 }
+ */

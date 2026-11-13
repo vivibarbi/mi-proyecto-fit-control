@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
+import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.web.bind.annotation.*;
 
@@ -82,6 +83,14 @@ public ResponseEntity<?> obtenerUsuario(Authentication authentication) {
         email = googleUser.getEmail();
 
     }
+    // LOGIN CON OAuth2User
+    else if (principal instanceof OAuth2User) {
+
+        OAuth2User googleUser = (OAuth2User) principal;
+
+        email = googleUser.getAttribute("email");
+    }
+
     // LOGIN TRADICIONAL
     else if (principal instanceof UserDetails) {
 
@@ -121,6 +130,7 @@ public ResponseEntity<?> obtenerUsuario(Authentication authentication) {
     }
 
     return ResponseEntity.ok(Map.of(
+            "id", usuario.getId(),
             "nombre", nombre,
             "email", usuario.getEmail()
     ));

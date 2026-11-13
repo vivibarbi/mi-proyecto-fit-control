@@ -5,7 +5,15 @@ import java.time.LocalDate;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "registro_peso")
+@Table(
+    name = "registro_peso",
+    uniqueConstraints = {
+        @UniqueConstraint(
+            columnNames = {"usuario_id", "fecha"}
+        )
+    }
+)
+
 public class RegistroPeso {
 
     @Id
@@ -20,13 +28,12 @@ public class RegistroPeso {
     @JoinColumn(name = "usuario_id", nullable = false)
     private Usuario usuario;
 
-// Constructor vacío necesario para JPA
     public RegistroPeso() {
     }
 
-    public RegistroPeso(double peso, Usuario usuario) {
+    public RegistroPeso(double peso, Usuario usuario, LocalDate fecha) {
         this.peso = peso;
-        this.fecha = LocalDate.now();
+        this.fecha = fecha;
         this.usuario = usuario;
     }
 

@@ -5,6 +5,7 @@ import java.util.Map;
 
 @Service
 public class FitnessService {
+//*calculadora fitness */
 
     public Map<String, Object> calcular(
             double peso,
