@@ -17,6 +17,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import java.time.LocalDate;
 import java.util.Map;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api/progreso")
@@ -24,6 +26,7 @@ public class RegistroPesoController {
 
     private final RegistroPesoRepository registroRepository;
     private final UsuarioRepository usuarioRepository;
+    private static final Logger logger = LoggerFactory.getLogger(RegistroPesoController.class);
 
     public RegistroPesoController(
             RegistroPesoRepository registroRepository,
@@ -72,7 +75,52 @@ public class RegistroPesoController {
     }
 
     // CONSULTAR HISTORIAL
+
+
     @GetMapping
+    public ResponseEntity<?> obtenerRegistros(
+        Authentication authentication) {
+
+    try {
+
+        logger.info("Consultando historial de peso");
+
+        Usuario usuario = obtenerUsuario(authentication);
+
+        if (usuario == null) {
+            logger.warn("No se encontró usuario autenticado");
+
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                .body(Map.of("error", "Sesión no válida"));
+        }
+
+        logger.info("Usuario encontrado ID: {}", usuario.getId());
+
+        List<RegistroPeso> registros =
+            registroRepository.findByUsuario_IdOrderByFechaAsc(
+                usuario.getId()
+            );
+
+        logger.info("Registros encontrados: {}", registros.size());
+
+        List<Map<String, Object>> resultado = registros.stream()
+            .map(registro -> Map.<String, Object>of(
+                "id", registro.getId(),
+                "peso", registro.getPeso(),
+                "fecha", registro.getFecha().toString()
+            ))
+            .toList();
+
+        return ResponseEntity.ok(resultado);
+
+    } catch (Exception e) {
+
+        logger.error("ERROR AL CONSULTAR HISTORIAL DE PESO", e);
+
+        throw e;
+    }
+}
+    /*@GetMapping
     public ResponseEntity<?> obtenerRegistros(
             Authentication authentication) {
 
@@ -98,7 +146,7 @@ public class RegistroPesoController {
 
         return ResponseEntity.ok(resultado);
     }
-
+*/
     // REGISTRAR PESO
     @PostMapping
     public ResponseEntity<?> registrarPeso(
@@ -128,8 +176,7 @@ public class RegistroPesoController {
 
         LocalDate hoy = LocalDate.now();
 
-        if (registroRepository.existsByUsuario_IdAndFecha(
-                usuario.getId(), hoy)) {
+        if (registroRepository.existsByUsuario_IdAndFecha(usuario.getId(), hoy)) {
 
             return ResponseEntity.status(HttpStatus.CONFLICT)
                 .body(Map.of(

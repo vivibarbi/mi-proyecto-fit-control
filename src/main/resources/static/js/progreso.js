@@ -258,16 +258,12 @@ function configurarFormulario() {
         e.preventDefault();
 
         const boton = document.getElementById("btnGuardar");
-
         const mensaje = document.getElementById("mensaje");
-
         const peso = Number(document.getElementById("peso").value);
 
         if (!Number.isFinite(peso) || peso <= 0 || peso > 1000) {
-
             mensaje.textContent = "Introduce un peso válido.";
             return;
-
         }
 
         boton.disabled = true;
@@ -330,9 +326,7 @@ function configurarFormulario() {
         } catch (error) {
 
             console.error(error);
-
             mensaje.textContent = error.message;
-
             mensaje.className = "text-danger";
 
         } finally {
